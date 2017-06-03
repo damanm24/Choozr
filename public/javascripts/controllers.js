@@ -7,7 +7,7 @@ function NewPollCtrl($scope, $http, $location) {
     };
 
     $scope.addChoice = function () {
-        if ($scope.poll.answers.length > 3) {
+        if ($scope.poll.options.length > 3) {
             //$scope.error;
             console.log("Too many choices");
         } else {
@@ -51,15 +51,36 @@ function NewPollCtrl($scope, $http, $location) {
     }
 }
 
-function GetPollCtrl($scope, $http) {
-    $http.get('/api/getPoll/:id').success(function(singlePoll) {
-        $scope.poll = singlePoll;
-    });
+function GetPollCtrl($scope, $http, $routeParams) {
+
+    $scope.poll = null;
+
+
+    $scope.loadPage = function() {
+        var id = $routeParams.id;
+        id = id.substring(3, (id.length-3));
+        $http.get('/api/getPoll/' + id).success(function (singlePoll) {
+            $scope.poll = singlePoll;
+            $scope.showPoll();
+        });
+    };
+
+    $scope.showPoll = function() {
+        console.log($scope.poll);
+
+    }
+
+    $scope.submitVote = function(text, id){
+        var payload = {
+            poll_id: id,
+            choice_text: text
+        };
+        $http.put("/api/vote/", payload);
+
+
+    }
 }
 
 function PollListCtrl() {
-    $http.get('/api/getPoll').success(function(singlePoll) {
-       $scope.singlePoll = singlePoll;
-    });
 }
 
