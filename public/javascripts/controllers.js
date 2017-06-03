@@ -81,11 +81,11 @@ function GetPollCtrl($scope, $http, $routeParams) {
     }
 }
 
-function PollListCtrl() {
-    $.scope.polls = null;
+function PollListCtrl($scope, $http) {
+    $scope.polls = null;
 
-    $.scope.loadPage = function(){
-        $http.get('api/viewPolls').success(function(allPolls)){
+    $scope.loadPage = function(){
+        $http.get('/api/viewPolls/').success(function(allPolls){
             $scope.polls = allPolls;
             $scope.showPolls();
 
@@ -93,7 +93,7 @@ function PollListCtrl() {
       };
 
       $scope.showPolls = function() {
-          console.log($scope.poll);
+          console.log($scope.polls);
 
       }
 
