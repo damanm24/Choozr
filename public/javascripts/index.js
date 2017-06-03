@@ -7,8 +7,8 @@ app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/addPoll', {templateUrl:'partials/addPoll.html', controller: NewPollCtrl}).
             when('/getPoll/:id', {templateUrl:'partials/getPoll.html', controller: GetPollCtrl}).
-            when('/polls', {templateUrl:'partials/getPoll.html', controller: PollListCtrl}).
-            otherwise({redirectTo: '/polls'});
+            when('/viewPolls', {templateUrl:'partials/viewPolls.html', controller: PollListCtrl}).
+            otherwise({redirectTo: '/viewPolls'});
 }]);
 
 function MainCtrl($scope, $location) {
