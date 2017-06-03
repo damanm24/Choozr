@@ -17,8 +17,8 @@ router.post('/pollPost', function(req, res) {
 });
 
 router.get('/getPoll/:id', function(req, res) {
-
-    Poll.findOne({_id: req.body}, function(err, foundPoll) {
+    console.log(req.params.id);
+    Poll.findOne({id: req.params.id}, function(err, foundPoll) {
         if(err) throw err;
         if(!foundPoll) {
             res.json('Cannot find the Poll with the given ID. It might have been deleted');

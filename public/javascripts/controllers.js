@@ -32,7 +32,8 @@ function NewPollCtrl($scope, $http, $location) {
         if(isvalid) {
             $http.post('/api/pollPost', JSON.stringify(poll)).then(
                 function successCallback(response) {
-                    $location.path('/getPoll/' + response.id);
+                    console.log(response.data);
+                    $location.path('/getPoll/' + JSON.stringify(response.data));
                     //console.log(response);
                 }, function failedCallback(response) {
 
@@ -50,11 +51,10 @@ function NewPollCtrl($scope, $http, $location) {
     }
 }
 
-function GetPollCtrl() {
-    $scope.getPost = function() {
-        $http.get('/api/getPost')
-
-    }
+function GetPollCtrl($scope, $http) {
+    $http.get('/api/getPoll/:id').success(function(singlePoll) {
+        $scope.poll = singlePoll;
+    });
 }
 
 function PollListCtrl() {
