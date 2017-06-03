@@ -1,8 +1,47 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+    background-color: #333333;
 }
 
-a {
-  color: #00B7FF;
+.po-container{
+    text-align: center;
+    display: block;
+    padding: 20px;
+}
+
+.op-container{
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: grey;
+}
+
+.rec{
+    position: absolute;
+    bottom: 0px;
+    width: 400px;
+    height: 60px;
+    background-color: white;
+    opacity: 0.8;
+}
+
+
+
+h1, h2{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    font-family: helvetica;
+    font-weight: 900;
+    width: 400px;
+}
+
+h1{
+    top:155px;
+    font-size: 50px;
+    opacity: 0;
 }
