@@ -51,7 +51,7 @@ function NewPollCtrl($scope, $http, $location) {
     }
 }
 
-function GetPollCtrl($scope, $http, $routeParams, $rootScope) {
+function GetPollCtrl($scope, $http, $routeParams) {
 
     $scope.poll = null;
 
@@ -71,21 +71,30 @@ function GetPollCtrl($scope, $http, $routeParams, $rootScope) {
     }
 
     $scope.submitVote = function(text, id){
-        if(!($rootScope.pollsVotedIn.includes(id))) {
-            var payload = {
-                poll_id: id,
-                choice_text: text
-            };
-            $rootScope.pollsVotedIn.push(id);
-            $http.put("/api/vote/", payload);
-        } else {
-            console.log("Already voted in");
-        }
+        var payload = {
+            poll_id: id,
+            choice_text: text
+        };
+        $http.put("/api/vote/", payload);
 
 
     }
 }
 
 function PollListCtrl() {
-}
+    $.scope.polls = null;
 
+    $.scope.loadPage = function(){
+        $http.get('api/viewPolls').success(function(allPolls)){
+            $scope.polls = allPolls;
+            $scope.showPolls();
+
+          });
+      };
+
+      $scope.showPolls = function() {
+          console.log($scope.poll);
+
+      }
+
+}
