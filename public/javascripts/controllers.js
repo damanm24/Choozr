@@ -6,6 +6,9 @@ function NewPollCtrl($scope, $http, $location) {
         options: [{text: ''}, {text: ''}]
     };
 
+    $scope.queryURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=97c5cc1c6797a81ef3f7a6e50f591131&tags=";
+    $scope.queryURLpt2 = "&content_type=true&per_page=1&format=json&nojsoncallback=1";
+
     $scope.addChoice = function () {
         if ($scope.poll.options.length > 3) {
             //$scope.error;
@@ -71,6 +74,7 @@ function GetPollCtrl($scope, $http, $routeParams) {
     }
 
     $scope.submitVote = function(text, id){
+        console.log(id);
         var payload = {
             poll_id: id,
             choice_text: text
