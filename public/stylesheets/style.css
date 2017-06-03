@@ -1,5 +1,31 @@
 body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Arial', serif;
     background-color: #333333;
+}
+
+.nav-bar{
+  margin: 0;
+  background-color: #595959;
+  color: #ffffff;
+  list-style: none;
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+
+.nav-bar li{
+  display: inline-block;
+  padding: 0 25px 0 25px;
+}
+
+.nav-bar li a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav-bar li a:hover{
+  color: #c1c1c1;
 }
 
 .po-container{
@@ -31,7 +57,7 @@ body{
 
 
 
-.text .percent{
+.text, .percent{
     position: absolute;
     bottom: 0px;
     text-align: center;
@@ -40,7 +66,7 @@ body{
     width: 400px;
 }
 
-.text{
+.percent{
     top:155px;
     font-size: 50px;
     opacity: 0;
