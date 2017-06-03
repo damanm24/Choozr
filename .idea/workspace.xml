@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83e11fa3-0210-403c-aa35-48b907c6bed5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/index.js" afterPath="$PROJECT_DIR$/public/javascripts/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.js" afterPath="$PROJECT_DIR$/routes/api.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -33,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/public/partials/addPoll.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+              <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
               <folding>
                 <element signature="e#941#948#0" expanded="true" />
                 <element signature="e#992#998#1" expanded="true" />
@@ -46,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/public/partials/getPoll.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+              <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -55,8 +54,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="81" column="44" lean-forward="false" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
+            <state relative-caret-position="434">
+              <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="36" />
               <folding>
                 <element signature="n#!!doc;n#NewPollCtrl#0" expanded="false" />
               </folding>
@@ -68,8 +67,20 @@
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+              <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="553">
+              <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#40#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/models/Poll.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -96,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="87" lean-forward="true" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
+            <state relative-caret-position="255">
+              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -133,13 +144,13 @@
         <option value="$PROJECT_DIR$/partials/addPoll.html" />
         <option value="$PROJECT_DIR$/partials/polls.html" />
         <option value="$PROJECT_DIR$/views/index.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/index.js" />
         <option value="$PROJECT_DIR$/models/Poll.js" />
         <option value="$PROJECT_DIR$/public/partials/addPoll.html" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/partials/getPoll.html" />
-        <option value="$PROJECT_DIR$/routes/api.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/index.js" />
+        <option value="$PROJECT_DIR$/routes/api.js" />
       </list>
     </option>
   </component>
@@ -389,16 +400,15 @@
       <updated>1496287481764</updated>
       <workItem from="1496287483093" duration="15550000" />
       <workItem from="1496460965092" duration="5381000" />
-      <workItem from="1496468660373" duration="12020000" />
+      <workItem from="1496468660373" duration="12606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32951000" />
+    <option name="totallyTimeSpent" value="33537000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18278852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -621,52 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Poll.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="81" column="44" lean-forward="false" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!doc;n#NewPollCtrl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -678,7 +642,7 @@
     <entry file="file://$PROJECT_DIR$/public/partials/addPoll.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
             <element signature="e#941#948#0" expanded="true" />
             <element signature="e#992#998#1" expanded="true" />
@@ -689,17 +653,63 @@
     <entry file="file://$PROJECT_DIR$/public/partials/getPoll.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Poll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="87" lean-forward="true" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
+        <state relative-caret-position="255">
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc;n#NewPollCtrl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>

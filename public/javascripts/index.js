@@ -11,8 +11,9 @@ app.config(['$routeProvider', function($routeProvider) {
             otherwise({redirectTo: '/viewPolls'});
 }]);
 
-function MainCtrl($scope, $location) {
+function MainCtrl($scope, $location, $rootScope) {
     $scope.setRoute = function(route) {
         $location.path(route);
     }
+    $rootScope.pollsVotedIn = [];
 }
