@@ -41,6 +41,7 @@ router.put('/vote', function(req, res){
                     foundPoll.options[i].votes++;
                     foundPoll.save(function(err, updatedPoll) {
                        if (err) throw err;
+
                        res.json(updatedPoll);
                     });
                     break;
