@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/choosr');
 
 var PollSchema = mongoose.Schema({
-    answers: [{
+    options: [{
         text: String,
         votes: Number
     }]

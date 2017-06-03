@@ -6,7 +6,7 @@
 
     <div class="form-group">
         <label>Choices</label>
-        <div ng-repeat="choice in poll.answers">
+        <div ng-repeat="choice in poll.options">
             <input type="text" ng-model="choice.text" class="form-control" placeholder="Enter choice {{$index+1}} text"><br>
         </div>
     </div>

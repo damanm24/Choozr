@@ -3,7 +3,7 @@
  */
 function NewPollCtrl($scope, $http, $location) {
     $scope.poll = {
-        answers: [{text: ''}, {text: ''}]
+        options: [{text: ''}, {text: ''}]
     };
 
     $scope.addChoice = function () {
@@ -11,7 +11,7 @@ function NewPollCtrl($scope, $http, $location) {
             //$scope.error;
             console.log("Too many choices");
         } else {
-            $scope.poll.answers.push({text: ''});
+            $scope.poll.options.push({text: ''});
         }
     };
 
@@ -19,21 +19,21 @@ function NewPollCtrl($scope, $http, $location) {
         var poll = $scope.poll;
         var isvalid = true;
         //validation
-        for (var i = 0; i < poll.answers.length; i++) {
-            if (poll.answers[i].text.length == 0) {
+        for (var i = 0; i < poll.options.length; i++) {
+            if (poll.options[i].text.length == 0) {
                 isvalid = false;
                 console.log("Error blank answers");
                 //$scope.error("");
             } else {
-                poll.answers[i].votes = 0;
+                poll.options[i].votes = 0;
             }
         }
 
         if(isvalid) {
             $http.post('/api/pollPost', JSON.stringify(poll)).then(
                 function successCallback(response) {
-                    //$location.path('/getPoll/' + response.id);
-                    console.log(response);
+                    $location.path('/getPoll/' + response.id);
+                    //console.log(response);
                 }, function failedCallback(response) {
 
                 }
@@ -52,13 +52,13 @@ function NewPollCtrl($scope, $http, $location) {
 
 function GetPollCtrl() {
     $scope.getPost = function() {
-        $http.post('api/getPost')
+        $http.get('/api/getPost')
 
     }
 }
 
 function PollListCtrl() {
-    $http.get('/api/getPolls').success(function(singlePoll) {
+    $http.get('/api/getPoll').success(function(singlePoll) {
        $scope.singlePoll = singlePoll;
     });
 }

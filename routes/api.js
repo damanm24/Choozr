@@ -8,11 +8,12 @@ var Poll = require('../models/Poll');
 
 router.post('/pollPost', function(req, res) {
 
-    Poll.create(req.body, function(err) {
+    Poll.create(req.body, function(err, savedPoll) {
         if(err) throw err;
+
+        res.json(savedPoll.id);
     });
 
-   res.json(req.body);
 });
 
 router.get('/getPoll/:id', function(req, res) {
