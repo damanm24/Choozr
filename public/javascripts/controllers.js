@@ -87,6 +87,8 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
       if(sum > 0){
         for(var i = 0; i < $scope.poll.options.length; i++){
           $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes/sum) * 100);
+          $scope.poll.options[i].height = $scope.poll.options[i].percentage * 3;
+          console.log($scope.poll.options[i].height + "px");
         }
       } else {
         for(var i = 0; i < $scope.poll.options.length; i++){
