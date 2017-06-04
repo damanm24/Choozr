@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83e11fa3-0210-403c-aa35-48b907c6bed5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/index.js" afterPath="$PROJECT_DIR$/public/javascripts/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/getPoll.html" afterPath="$PROJECT_DIR$/public/partials/getPoll.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,16 +17,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="addPoll.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/partials/addPoll.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,7 +35,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="67" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
-              <folding />
+              <folding>
+                <marker date="1496557845511" expanded="true" signature="607:671" ph="..." />
+                <marker date="1496557845511" expanded="true" signature="607:682" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,8 +46,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="72" column="44" lean-forward="false" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+            <state relative-caret-position="459">
+              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc;n#NewPollCtrl#0" expanded="false" />
               </folding>
@@ -78,8 +68,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+            <state relative-caret-position="323">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,8 +78,8 @@
       <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="527">
+              <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -100,10 +90,13 @@
       <file leaf-file-name="Poll.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/Poll.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            <state relative-caret-position="153">
+              <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
+                <marker date="1496557837074" expanded="true" signature="160:230" ph="{...}" />
+                <marker date="1496557837074" expanded="true" signature="175:228" ph="[...]" />
+                <marker date="1496557837074" expanded="true" signature="176:227" ph="{&quot;text&quot;: String...}" />
               </folding>
             </state>
           </provider>
@@ -114,7 +107,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-              <folding />
+              <folding>
+                <marker date="1496557837239" expanded="true" signature="0:403" ph="{&quot;name&quot;: &quot;choozr&quot;...}" />
+                <marker date="1496557837239" expanded="true" signature="123:401" ph="{&quot;body-parser&quot;: &quot;~1.17.1&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -417,7 +413,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37397000" />
+    <option name="totallyTimeSpent" value="38308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
@@ -474,7 +470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
           <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -493,7 +488,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
+          <folding>
+            <marker date="1496557837239" expanded="true" signature="0:403" ph="{&quot;name&quot;: &quot;choozr&quot;...}" />
+            <marker date="1496557837239" expanded="true" signature="123:401" ph="{&quot;body-parser&quot;: &quot;~1.17.1&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -503,6 +501,9 @@
           <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
+            <marker date="1496557837074" expanded="true" signature="160:230" ph="{...}" />
+            <marker date="1496557837074" expanded="true" signature="175:228" ph="[...]" />
+            <marker date="1496557837074" expanded="true" signature="176:227" ph="{&quot;text&quot;: String...}" />
           </folding>
         </state>
       </provider>
@@ -539,7 +540,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="106" lean-forward="false" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
-          <folding />
+          <folding>
+            <marker date="1496557845511" expanded="true" signature="607:671" ph="..." />
+            <marker date="1496557845511" expanded="true" signature="607:682" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -557,7 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -565,7 +568,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1496557845511" expanded="true" signature="607:671" ph="..." />
+            <marker date="1496557845511" expanded="true" signature="607:682" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -603,6 +609,9 @@
           <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="61" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
+            <marker date="1496557837074" expanded="true" signature="160:230" ph="{...}" />
+            <marker date="1496557837074" expanded="true" signature="175:228" ph="[...]" />
+            <marker date="1496557837074" expanded="true" signature="176:227" ph="{&quot;text&quot;: String...}" />
           </folding>
         </state>
       </provider>
@@ -611,7 +620,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
+          <folding>
+            <marker date="1496557837239" expanded="true" signature="0:403" ph="{&quot;name&quot;: &quot;choozr&quot;...}" />
+            <marker date="1496557837239" expanded="true" signature="123:401" ph="{&quot;body-parser&quot;: &quot;~1.17.1&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -640,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -659,7 +670,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1496557845511" expanded="true" signature="607:671" ph="..." />
+            <marker date="1496557845511" expanded="true" signature="607:682" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -689,6 +703,9 @@
           <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
+            <marker date="1496557837074" expanded="true" signature="160:230" ph="{...}" />
+            <marker date="1496557837074" expanded="true" signature="175:228" ph="[...]" />
+            <marker date="1496557837074" expanded="true" signature="176:227" ph="{&quot;text&quot;: String...}" />
           </folding>
         </state>
       </provider>
@@ -697,7 +714,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
+          <folding>
+            <marker date="1496557837239" expanded="true" signature="0:403" ph="{&quot;name&quot;: &quot;choozr&quot;...}" />
+            <marker date="1496557837239" expanded="true" signature="123:401" ph="{&quot;body-parser&quot;: &quot;~1.17.1&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -746,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -765,16 +784,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
+          <folding>
+            <marker date="1496557837239" expanded="true" signature="0:403" ph="{&quot;name&quot;: &quot;choozr&quot;...}" />
+            <marker date="1496557837239" expanded="true" signature="123:401" ph="{&quot;body-parser&quot;: &quot;~1.17.1&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Poll.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="153">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
+            <marker date="1496557837074" expanded="true" signature="160:230" ph="{...}" />
+            <marker date="1496557837074" expanded="true" signature="175:228" ph="[...]" />
+            <marker date="1496557837074" expanded="true" signature="176:227" ph="{&quot;text&quot;: String...}" />
           </folding>
         </state>
       </provider>
@@ -783,7 +808,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="67" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
-          <folding />
+          <folding>
+            <marker date="1496557845511" expanded="true" signature="607:671" ph="..." />
+            <marker date="1496557845511" expanded="true" signature="607:682" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,16 +825,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state relative-caret-position="527">
+          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
@@ -825,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="72" column="44" lean-forward="false" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+        <state relative-caret-position="459">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc;n#NewPollCtrl#0" expanded="false" />
           </folding>

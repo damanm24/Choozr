@@ -1,7 +1,7 @@
 /**
  * Created by daman on 5/31/2017.
  */
-function NewPollCtrl($scope, $http, $location) {
+function NewPollCtrl($scope, $http, $location, $q) {
     $scope.poll = {
         options: [{text: ''}, {text: ''}]
     };
@@ -26,32 +26,48 @@ function NewPollCtrl($scope, $http, $location) {
             if (poll.options[i].text.length == 0) {
                 isvalid = false;
                 console.log("Error blank answers");
-                //$scope.error("");
-            } else {
-                poll.options[i].votes = 0;
+                break;
             }
         }
 
-        if(isvalid) {
-            $http.post('/api/pollPost', JSON.stringify(poll)).then(
-                function successCallback(response) {
-                    console.log(response.data);
-                    $location.path('/getPoll/' + JSON.stringify(response.data));
-                    //console.log(response);
-                }, function failedCallback(response) {
+        if (isvalid) {
+            var defer = $q.defer();
 
-                }
-            );
+            function firstPromise(pollObject) {
+                $scope.poll = $scope.addVotesProperty(pollObject);
+            }
 
+            function secondPromise(pollObject) {
+                $scope.getRequest(pollObject);
+            }
+
+            defer.promise.then(firstPromise(poll)).then(secondPromise($scope.poll));
+
+            defer.resolve();
         } else {
             console.log('Your poll is invalid');
         }
 
     };
 
-    $scope.error = function () {
+    $scope.addVotesProperty = function (poll) {
+        for(var i = 0; i < poll.options.length; i++) {
+            poll.options[i].votes = 0;
+        }
+        return poll;
+    };
 
-    }
+    $scope.getRequest = function (poll) {
+        $http.post('/api/pollPost', JSON.stringify(poll)).then(
+            function successCallback(response) {
+                console.log(response.data);
+                $location.path('/getPoll/' + JSON.stringify(response.data));
+                //console.log(response);
+            }, function failedCallback(response) {
+
+            }
+        );
+    };
 }
 
 function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
@@ -59,60 +75,60 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
     $scope.poll = null;
     $scope.moduleState = "notVoted";
 
-    $scope.loadPage = function() {
+    $scope.loadPage = function () {
         var id = $routeParams.id;
-        id = id.substring(3, (id.length-3));
+        id = id.substring(3, (id.length - 3));
         $http.get('/api/getPoll/' + id).success(function (singlePoll) {
             $scope.poll = singlePoll;
             //$scope.showPoll();
             $scope.calculatePercentage();
         });
-        if($rootScope.pollsVotedIn.includes(id)) {
+        if ($rootScope.pollsVotedIn.includes(id)) {
             $scope.moduleState = "voted";
         } else {
             $scope.moduleState = "notVoted";
         }
     };
 
-    $scope.showPoll = function() {
+    $scope.showPoll = function () {
         console.log($scope.poll);
     };
 
-    $scope.calculatePercentage = function(){
-      console.log($scope.poll.options);
-      var sum = 0;
-      for(var i = 0; i < $scope.poll.options.length; i++){
-        sum = sum + $scope.poll.options[i].votes;
-        $scope.poll.options[i].color = "#ffffff";
-      }
-      if(sum > 0){
-        for(var i = 0; i < $scope.poll.options.length; i++){
-          $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes/sum) * 100);
-          $scope.poll.options[i].height = $scope.poll.options[i].percentage * 3;
-          console.log($scope.poll.options[i].height + "px");
+    $scope.calculatePercentage = function () {
+        console.log($scope.poll.options);
+        var sum = 0;
+        for (var i = 0; i < $scope.poll.options.length; i++) {
+            sum = sum + $scope.poll.options[i].votes;
+            $scope.poll.options[i].color = "#ffffff";
         }
-      } else {
-        for(var i = 0; i < $scope.poll.options.length; i++){
-          console.log("Error: Sum < 0");
-          $scope.poll.options[i].percentage = 0;
+        if (sum > 0) {
+            for (var i = 0; i < $scope.poll.options.length; i++) {
+                $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
+                $scope.poll.options[i].height = $scope.poll.options[i].percentage * 3;
+                console.log($scope.poll.options[i].height + "px");
+            }
+        } else {
+            for (var i = 0; i < $scope.poll.options.length; i++) {
+                console.log("Error: Sum < 0");
+                $scope.poll.options[i].percentage = 0;
+            }
         }
-      }
 
-      if($scope.poll.options.length = 2){
-        console.log("yeah");
-        if($scope.poll.options[0].percentage > $scope.poll.options[1].percentage){
-          $scope.poll.options[0].color = "#fff2cc";
-          $scope.poll.options[1].color = "#d9d9d9";
-        } else if($scope.poll.options[0].percentage < $scope.poll.options[1].percentage) {
-          $scope.poll.options[0].color = "#d9d9d9";
-          $scope.poll.options[1].color = "#fff2cc";
+        if ($scope.poll.options.length = 2) {
+            console.log("yeah");
+            if ($scope.poll.options[0].percentage > $scope.poll.options[1].percentage) {
+                $scope.poll.options[0].color = "#fff2cc";
+                $scope.poll.options[1].color = "#d9d9d9";
+            } else if ($scope.poll.options[0].percentage < $scope.poll.options[1].percentage) {
+                $scope.poll.options[0].color = "#d9d9d9";
+                $scope.poll.options[1].color = "#fff2cc";
+            }
         }
-      }
 
 
     };
 
-    $scope.submitVote = function(text, id){
+    $scope.submitVote = function (text, id) {
         console.log("poll id is: " + id);
         var payload = {
             poll_id: id,
@@ -120,7 +136,7 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
         };
         var defer = $q.defer();
 
-        defer.promise.then(function() {
+        defer.promise.then(function () {
             $http.put("/api/vote/", payload);
         }).then(function () {
             $scope.moduleState = "voted";
@@ -133,23 +149,22 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
         defer.resolve();
 
 
-
     }
 }
 
 function PollListCtrl($scope, $http) {
     $scope.polls = null;
 
-    $scope.loadPage = function(){
-        $http.get('/api/viewPolls/').success(function(allPolls){
+    $scope.loadPage = function () {
+        $http.get('/api/viewPolls/').success(function (allPolls) {
             $scope.polls = allPolls;
             $scope.showPolls();
-          });
-      };
+        });
+    };
 
-      $scope.showPolls = function() {
-          console.log($scope.polls);
+    $scope.showPolls = function () {
+        console.log($scope.polls);
 
-      }
+    }
 
 }
