@@ -57,7 +57,7 @@ function NewPollCtrl($scope, $http, $location) {
 function GetPollCtrl($scope, $http, $routeParams) {
 
     $scope.poll = null;
-
+    $scope.moduleState = "notVoted";
 
     $scope.loadPage = function() {
         var id = $routeParams.id;
@@ -70,18 +70,17 @@ function GetPollCtrl($scope, $http, $routeParams) {
 
     $scope.showPoll = function() {
         console.log($scope.poll);
-
     }
 
     $scope.submitVote = function(text, id){
-        console.log(id);
+        console.log("poll id is: " + id);
         var payload = {
             poll_id: id,
             choice_text: text
         };
         $http.put("/api/vote/", payload);
-
-
+        $scope.loadPage();
+        $scope.moduleState = "voted";
     }
 }
 
@@ -92,7 +91,6 @@ function PollListCtrl($scope, $http) {
         $http.get('/api/viewPolls/').success(function(allPolls){
             $scope.polls = allPolls;
             $scope.showPolls();
-
           });
       };
 

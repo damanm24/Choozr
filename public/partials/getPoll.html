@@ -1,6 +1,15 @@
-<div ng-init="loadPage()" class="po-container">
-    <form class="op-container" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id)" >
-        <div class="rec"></div>
+<div ng-switch="moduleState" ng-init="loadPage()" class="po-container">
+    <div ng-switch-when="notVoted">
+      <form class="op-container" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id)" >
+        <div class="rec">VIEW ONE</div>
         <h2 class="text">{{option.text}}</h2>
-    </form>
+      </form>
+    </div>
+    <div ng-switch-when="voted">
+      <form class="op-container" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id)">
+        <div class="rec">VIEW TWO</div>
+        <h1 class="percent">{{option.percent}}</h1>
+        <h2 class="text">{{option.text}}</h2>
+      </form>
+    </div>
 </div>

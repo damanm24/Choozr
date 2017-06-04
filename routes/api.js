@@ -23,6 +23,7 @@ router.get('/getPoll/:id', function (req, res) {
         if (!foundPoll) {
             res.json('Cannot find the Poll with the given ID. It might have been deleted');
         } else {
+            console.log(foundPoll.id);
             res.json(foundPoll);
         }
     });
