@@ -72,6 +72,25 @@ function GetPollCtrl($scope, $http, $routeParams) {
         console.log($scope.poll);
     }
 
+    $scope.calculatePercentage = function(){
+      console.log($scope.poll.options);
+      var sum = 0;
+      for(var i = 0; i < $scope.poll.options.length; i++){
+        sum = sum + $scope.poll.options[i].votes; i++
+      }
+      if(sum > 0){
+        for(var i = 0; i < $scope.poll.options.length; i++){
+          $scope.poll.options[i].percentage = $scope.poll.options[i].votes/sum;
+          console.log($scope.poll.options[i].percentage);
+        }
+      } else {
+        for(var i = 0; i < $scope.poll.options.length; i++){
+          console.log("sum less than 0");
+          $scope.poll.options[i].percentage = 0;
+        }
+      }
+    }
+
     $scope.submitVote = function(text, id){
         console.log("poll id is: " + id);
         var payload = {
@@ -80,6 +99,7 @@ function GetPollCtrl($scope, $http, $routeParams) {
         };
         $http.put("/api/vote/", payload);
         $scope.loadPage();
+        $scope.calculatePercentage();
         $scope.moduleState = "voted";
     }
 }
