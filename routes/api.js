@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 var Poll = require('../models/Poll');
+var User = require('../models/User');
 
 router.post('/pollPost', function (req, res) {
 
@@ -17,13 +18,25 @@ router.post('/pollPost', function (req, res) {
 });
 
 router.get('/getPoll/:id', function (req, res) {
-    console.log(req.params.id);
+    //console.log(req.params.id);
+    var hasVoted = false;
+    User.findOne({ip: req.ip, poll_idS: req.params.id}, function(err, foundUser) {
+        if(err) throw err;
+        if(!(foundUser === null)) {
+            hasVoted = true;
+        }
+    });
     Poll.findOne({_id: req.params.id}, function (err, foundPoll) {
         if (err) throw err;
         if (!foundPoll) {
             res.json('Cannot find the Poll with the given ID. It might have been deleted');
         } else {
-            console.log(foundPoll.id);
+            //console.log(foundPoll.id);
+            if(hasVoted === true) {
+                foundPoll.hasVoted = true;
+            } else {
+                foundPoll.hasVosted = false;
+            }
             res.json(foundPoll);
         }
     });
@@ -32,6 +45,13 @@ router.get('/getPoll/:id', function (req, res) {
 });
 
 router.put('/vote', function (req, res) {
+    User.findOne({ip: req.ip}, function(err, foundUser) {
+       if(err) throw err;
+       foundUser.poll_idS.push(req.body.poll_id);
+       foundPoll.save(function(err) {
+           if(err) throw err;
+       })
+    });
     Poll.findOne({_id: req.body.poll_id}, function (err, foundPoll) {
         if (err) throw err;
         if (!foundPoll) {

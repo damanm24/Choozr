@@ -6,11 +6,10 @@ var methodOverride = require('method-override');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/choosr');
-var db = mongoose.connection;
+var conn = mongoose.createConnection('mongodb://localhost/choosr');
+var conn2 = mongoose.createConnection('mongodb://localhost/UserDB');
 
 var index = require('./routes/index');
 var api = require('./routes/api');
