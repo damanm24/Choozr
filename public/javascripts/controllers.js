@@ -54,7 +54,7 @@ function NewPollCtrl($scope, $http, $location) {
     }
 }
 
-function GetPollCtrl($scope, $http, $routeParams) {
+function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
 
     $scope.poll = null;
     $scope.moduleState = "notVoted";
@@ -66,8 +66,12 @@ function GetPollCtrl($scope, $http, $routeParams) {
             $scope.poll = singlePoll;
             //$scope.showPoll();
             $scope.calculatePercentage();
-            $scope.moduleState = "voted";
         });
+        if($rootScope.pollsVotedIn.includes(id)) {
+            $scope.moduleState = "voted";
+        } else {
+            $scope.moduleState = "notVoted";
+        }
     };
 
     $scope.showPoll = function() {
@@ -82,7 +86,7 @@ function GetPollCtrl($scope, $http, $routeParams) {
       }
       if(sum > 0){
         for(var i = 0; i < $scope.poll.options.length; i++){
-          $scope.poll.options[i].percentage = $scope.poll.options[i].votes/sum;
+          $scope.poll.options[i].percentage = ($scope.poll.options[i].votes/sum) * 100;
           console.log($scope.poll.options[i].percentage);
         }
       } else {
@@ -99,8 +103,22 @@ function GetPollCtrl($scope, $http, $routeParams) {
             poll_id: id,
             choice_text: text
         };
-        $http.put("/api/vote/", payload);
-        $scope.loadPage();
+        var defer = $q.defer();
+
+        defer.promise.then(function() {
+            $http.put("/api/vote/", payload);
+        }).then(function () {
+            $scope.moduleState = "voted";
+        }).then(function () {
+            $rootScope.pollsVotedIn.push(id);
+        }).then(function () {
+            $scope.loadPage();
+        });
+
+        defer.resolve();
+
+
+
     }
 }
 

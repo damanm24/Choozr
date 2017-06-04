@@ -14,6 +14,6 @@ app.config(['$routeProvider', function($routeProvider) {
 function MainCtrl($scope, $location, $rootScope) {
     $scope.setRoute = function(route) {
         $location.path(route);
-    }
+    };
     $rootScope.pollsVotedIn = [];
 }
