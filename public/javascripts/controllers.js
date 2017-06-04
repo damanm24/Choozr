@@ -83,6 +83,7 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
       var sum = 0;
       for(var i = 0; i < $scope.poll.options.length; i++){
         sum = sum + $scope.poll.options[i].votes;
+        $scope.poll.options[i].color = "#ffffff";
       }
       if(sum > 0){
         for(var i = 0; i < $scope.poll.options.length; i++){
@@ -96,6 +97,19 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
           $scope.poll.options[i].percentage = 0;
         }
       }
+
+      if($scope.poll.options.length = 2){
+        console.log("yeah");
+        if($scope.poll.options[0].percentage > $scope.poll.options[1].percentage){
+          $scope.poll.options[0].color = "#fff2cc";
+          $scope.poll.options[1].color = "#d9d9d9";
+        } else if($scope.poll.options[0].percentage < $scope.poll.options[1].percentage) {
+          $scope.poll.options[0].color = "#d9d9d9";
+          $scope.poll.options[1].color = "#fff2cc";
+        }
+      }
+
+
     };
 
     $scope.submitVote = function(text, id){

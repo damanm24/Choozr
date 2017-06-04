@@ -7,7 +7,7 @@
     </div>
     <div ng-switch-when="voted">
       <form class="op-container" ng-repeat="option in poll.options">
-        <div class="rec rec-postvote" ng-style="{ 'height': option.height}"></div>
+        <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color}"></div>
         <h1 class="percent">{{option.percentage}}%</h1>
         <h2 class="text">{{option.text}}</h2>
       </form>
