@@ -80,14 +80,16 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
         id = id.substring(3, (id.length - 3));
         $http.get('/api/getPoll/' + id).success(function (singlePoll) {
             $scope.poll = singlePoll;
-            //$scope.showPoll();
             $scope.calculatePercentage();
+            $scope.poll.options[0].bgurl = "url('http://www.rap-up.com/app/uploads/2014/12/kanye-west.jpg')";
+            $scope.poll.options[1].bgurl = "url('http://images.fanpop.com/images/image_uploads/Eminem-eminem-227160_1024_768.jpg')";
         });
         if ($rootScope.pollsVotedIn.includes(id)) {
             $scope.moduleState = "voted";
         } else {
             $scope.moduleState = "notVoted";
         }
+
     };
 
     $scope.showPoll = function () {
