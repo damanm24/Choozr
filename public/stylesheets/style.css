@@ -64,23 +64,50 @@ body{
     position: absolute;
     bottom: 0px;
     text-align: center;
-    font-family: helvetica;
-    font-weight: 900;
+    font-family: 'Arial';
+    font-size: 30px;
+    margin: 0;
     width: 400px;
 }
 
 .text{
-  bottom: 0px;
+  bottom: 10px;
 }
 
 .percent{
-    bottom: 40px;
+    margin: 0;
+    bottom: 60px;
     font-size: 50px;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
+}
+
+.ask-container {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.ask-container h1{
+  font-family: 'Arial';
+  font-size: 45px;
+  font-weight: 100;
+  color: #ffffff;
+}
+
+.ask-container .input{
+  display: inline-block;
+    margin-left:;
+    margin-right: auto;
+    padding: 0 0 30px 20px;
+}
+
+
+.ask-container .create{
+  display: block;
+  margin: 0 auto;
 }
 
 
