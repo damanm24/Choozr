@@ -86,12 +86,11 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
       }
       if(sum > 0){
         for(var i = 0; i < $scope.poll.options.length; i++){
-          $scope.poll.options[i].percentage = ($scope.poll.options[i].votes/sum) * 100;
-          console.log($scope.poll.options[i].percentage);
+          $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes/sum) * 100);
         }
       } else {
         for(var i = 0; i < $scope.poll.options.length; i++){
-          console.log("sum less than 0");
+          console.log("Error: Sum < 0");
           $scope.poll.options[i].percentage = 0;
         }
       }
