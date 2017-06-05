@@ -2,6 +2,8 @@
  * Created by daman on 5/31/2017.
  */
 function NewPollCtrl($scope, $http, $location, $q) {
+  $scope.cbstate = "not-pressed";
+
     $scope.poll = {
         options: [{text: ''}, {text: ''}]
     };
@@ -10,6 +12,7 @@ function NewPollCtrl($scope, $http, $location, $q) {
     $scope.queryURLpt2 = "&content_type=true&per_page=1&format=json&nojsoncallback=1";
 
     $scope.addChoice = function () {
+
         if ($scope.poll.options.length > 3) {
             //$scope.error;
             console.log("Too many choices");
