@@ -50,14 +50,14 @@ body{
     position: absolute;
     bottom: 0px;
     width: 400px;
-    opacity: 0.95;
-    background-color: red;
-
+    filter: brightness(100%);
+    opacity: 0.5;
 }
 
 .rec-prevote{
       height: 60px;
-      background-color: white;
+      background-color: black;
+
 }
 
 .rec-postvote {
@@ -67,7 +67,7 @@ body{
 @keyframes AnimRec {
   from {
     height: 60px;
-        background-color: #ffffff;
+        background-color: black;
   }
 }
 
@@ -79,6 +79,12 @@ body{
     font-size: 30px;
     margin: 0;
     width: 400px;
+    color: white;
+    text-shadow:
+    -0.5px -0.5px 0 #000,
+    0.5px -0.5px 0 #000,
+    -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000;  
 }
 
 .text{
