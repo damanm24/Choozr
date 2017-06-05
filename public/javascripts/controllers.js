@@ -130,6 +130,27 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
 
     };
 
+    function ViewPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
+
+        $scope.poll = null;
+        $scope.moduleState = "notVoted";
+
+        $scope.loadPage = function () {
+            $http.get('/api/viewpolls/').success(function (polls) {
+                $scope.polls = polls;
+                console.log($scope.polls);
+            });
+        };
+  };
+
+
+
+
+
+
+
+
+
     $scope.submitVote = function (text, id) {
         console.log("poll id is: " + id);
         var payload = {
