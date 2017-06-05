@@ -100,7 +100,6 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
     };
 
     $scope.calculatePercentage = function () {
-        console.log($scope.poll.options);
         var sum = 0;
         for (var i = 0; i < $scope.poll.options.length; i++) {
             sum = sum + $scope.poll.options[i].votes;
@@ -110,17 +109,14 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
             for (var i = 0; i < $scope.poll.options.length; i++) {
                 $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
                 $scope.poll.options[i].height = $scope.poll.options[i].percentage * 3;
-                console.log($scope.poll.options[i].height + "px");
             }
         } else {
             for (var i = 0; i < $scope.poll.options.length; i++) {
-                console.log("Error: Sum < 0");
                 $scope.poll.options[i].percentage = 0;
             }
         }
 
         if ($scope.poll.options.length = 2) {
-            console.log("yeah");
             if ($scope.poll.options[0].percentage > $scope.poll.options[1].percentage) {
                 $scope.poll.options[0].color = "#cba135";
                 $scope.poll.options[1].color = "#d9d9d9";
@@ -129,8 +125,6 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
                 $scope.poll.options[1].color = "#cba135";
             }
         }
-
-
     };
 
     function ViewPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
@@ -146,16 +140,7 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
         };
   };
 
-
-
-
-
-
-
-
-
     $scope.submitVote = function (text, id) {
-        console.log("poll id is: " + id);
         var payload = {
             poll_id: id,
             choice_text: text
@@ -180,7 +165,6 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
 
 function PollListCtrl($scope, $http) {
     $scope.polls = null;
-
     $scope.loadPage = function () {
         $http.get('/api/viewPolls/').success(function (allPolls) {
             $scope.polls = allPolls;
@@ -190,7 +174,6 @@ function PollListCtrl($scope, $http) {
 
     $scope.showPolls = function () {
         console.log($scope.polls);
-
     }
 
 }
