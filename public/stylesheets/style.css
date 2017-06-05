@@ -133,6 +133,8 @@ body{
   white-space: nowrap;
   cursor: pointer;
   border: transparent;
+  background-color: #ff5765;
+  color: white;
 }
 
 .ask-container .create:hover, .ask-container .add:hover{
@@ -143,7 +145,8 @@ body{
   zoom: 1.5;
   display: block;
   margin: 0 auto;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 20px 5px 20px;
+  border-radius: 2px;
 }
 
 @keyframes fadein {
