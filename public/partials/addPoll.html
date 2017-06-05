@@ -5,7 +5,7 @@
       <div class="input" ng-repeat="choice in poll.options">
           <input type="text" ng-model="choice.text" class="form-control" placeholder="Choice {{$index+1}}"><br>
       </div>
-      <button type="button" ng-click="addChoice()"><span class="glyphicon glyphicon-plus">+</button>
+      <button class="add" type="button" ng-click="addChoice()"><span class="glyphicon glyphicon-plus">+</button>
       <button class="create" type="submit">Create</button>
     </form>
 </div>
