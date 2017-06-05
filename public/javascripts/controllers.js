@@ -126,7 +126,7 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
                 $scope.poll.options[1].color = "#d9d9d9";
             } else if ($scope.poll.options[0].percentage < $scope.poll.options[1].percentage) {
                 $scope.poll.options[0].color = "#d9d9d9";
-                $scope.poll.options[1].color = "#fff2cc";
+                $scope.poll.options[1].color = "#cba135";
             }
         }
 

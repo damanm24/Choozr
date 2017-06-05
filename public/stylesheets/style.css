@@ -51,7 +51,7 @@ body{
     bottom: 0px;
     width: 400px;
     filter: brightness(100%);
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .rec-prevote{
@@ -75,16 +75,15 @@ body{
     position: absolute;
     bottom: 0px;
     text-align: center;
-    font-family: 'Arial';
     font-size: 30px;
     margin: 0;
     width: 400px;
     color: white;
     text-shadow:
-    -0.5px -0.5px 0 #000,
-    0.5px -0.5px 0 #000,
-    -0.5px 0.5px 0 #000,
-    0.5px 0.5px 0 #000;  
+    -0.5px -0.5px 0 #333,
+    0.5px -0.5px 0 #333,
+    -0.5px 0.5px 0 #333,
+    0.5px 0.5px 0 #333;
 }
 
 .text{
@@ -108,7 +107,6 @@ body{
 }
 
 .ask-container h1{
-  font-family: 'Arial';
   font-size: 45px;
   font-weight: 100;
   color: #ffffff;
