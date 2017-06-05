@@ -2,16 +2,17 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Arial', serif;
-    background-color: #333333;
+    background-color: white;
 }
 
 .nav-bar{
   margin: 0;
-  background-color: #595959;
+  background-color: #f9f9f9;
   color: #ffffff;
   list-style: none;
   text-align: center;
   padding: 20px 0 20px 0;
+  margin-bottom: 15px;
 }
 
 .nav-bar li{
@@ -21,7 +22,7 @@ body{
 
 .nav-bar li a{
   text-decoration: none;
-  color: #ffffff;
+  color: black;
 }
 
 .nav-bar li a:hover{
@@ -31,7 +32,8 @@ body{
 .po-container{
     text-align: center;
     display: block;
-    padding: 20px;
+    padding: 20px 20px 40px 20px;
+
 }
 
 .op-container{
@@ -44,6 +46,7 @@ body{
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-color: grey;
+    margin: 1px;
 }
 
 .rec{
@@ -109,7 +112,7 @@ body{
 .ask-container h1{
   font-size: 45px;
   font-weight: 100;
-  color: #ffffff;
+  color: black;
 }
 
 .ask-container .input{
@@ -121,7 +124,7 @@ body{
 
 .ask-container input{
   font-size: 18px;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 5px 5px;
 }
 
 
@@ -140,6 +143,7 @@ body{
   zoom: 1.5;
   display: block;
   margin: 0 auto;
+  padding: 5px 10px 5px 10px;
 }
 
 @keyframes fadein {

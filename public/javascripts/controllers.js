@@ -84,8 +84,8 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
         $http.get('/api/getPoll/' + id).success(function (singlePoll) {
             $scope.poll = singlePoll;
             $scope.calculatePercentage();
-            $scope.poll.options[0].bgurl = "url('http://www.rap-up.com/app/uploads/2014/12/kanye-west.jpg')";
-            $scope.poll.options[1].bgurl = "url('http://images.fanpop.com/images/image_uploads/Eminem-eminem-227160_1024_768.jpg')";
+            $scope.poll.options[0].bgurl = "url('http://www.conradnewyork.com/assets/img/Special-Offers/new-york-skyline-720x565.jpg')";
+            $scope.poll.options[1].bgurl = "url('http://2.bp.blogspot.com/-D3UB8Nz30zM/USv8WYmvSdI/AAAAAAAAB5o/S8rA7KrQYdM/s1600/seattle+skyline.jpg')";
         });
         if ($rootScope.pollsVotedIn.includes(id)) {
             $scope.moduleState = "voted";
