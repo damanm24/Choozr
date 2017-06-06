@@ -26,7 +26,7 @@ body{
 }
 
 .nav-bar li a:hover{
-  color: #c1c1c1;
+  color: #ff5765;
 }
 
 .po-container{
@@ -47,6 +47,10 @@ body{
     background-position: 50% 50%;
     background-color: grey;
     margin: 1px;
+}
+
+.op-container:hover{
+  cursor: pointer;
 }
 
 .rec{
