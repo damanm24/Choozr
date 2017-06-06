@@ -137,11 +137,11 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
 
         if ($scope.poll.options.length = 2) {
             if ($scope.poll.options[0].percentage > $scope.poll.options[1].percentage) {
-                $scope.poll.options[0].color = "#cba135";
-                $scope.poll.options[1].color = "#d9d9d9";
+                $scope.poll.options[0].color = "#ff5765";
+                $scope.poll.options[1].color = "black";
             } else if ($scope.poll.options[0].percentage < $scope.poll.options[1].percentage) {
-                $scope.poll.options[0].color = "#d9d9d9";
-                $scope.poll.options[1].color = "#cba135";
+                $scope.poll.options[0].color = "black";
+                $scope.poll.options[1].color = "#ff5765";
             }
         }
     };
