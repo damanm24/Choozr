@@ -4,6 +4,25 @@
 function NewPollCtrl($scope, $http, $location, $q) {
   $scope.cbstate = "not-pressed";
 
+
+
+    activate1 = function(){
+        if ($scope.cbstate === "second-pressed" || $scope.cbstate === "both-pressed"){
+          $scope.cbstate = "both-pressed";
+        } else {
+          $scope.cbstate = "first-pressed";
+        }
+    }
+
+    activate2 = function(){
+        if ($scope.cbstate === "first-pressed" || $scope.cbstate === "both-pressed"){
+          $scope.cbstate = "both-pressed";
+        } else {
+          $scope.cbstate = "second-pressed";
+        }
+    }
+
+
     $scope.poll = {
         options: [{text: ''}, {text: ''}]
     };
