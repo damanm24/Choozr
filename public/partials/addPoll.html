@@ -15,7 +15,7 @@
     </div>
     <form role="form" ng-submit="submitChoice()">
       <div class="input" ng-repeat="choice in poll.options">
-        <input maxlength="20" type="text"  ng-model="choice.text" ng-change="temp=choice.text" onkeypress="activate{{$index+1}}()" placeholder="Choice {{$index+1}}"><br>
+        <input maxlength="15" type="text"  ng-model="choice.text" ng-change="temp=choice.text" onkeypress="activate{{$index+1}}()" placeholder="Choice {{$index+1}}"><br>
       </div>
       <button class="add" type="button" ng-click="addChoice()">+</button>
       <button class="create" type="submit">Create</button>
