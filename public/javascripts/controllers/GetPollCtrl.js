@@ -28,7 +28,7 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
         });
 
         defer.resolve();
-    }
+    };
 
     $scope.calculatePercentage = function () {
         var sum = 0;
