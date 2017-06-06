@@ -129,6 +129,11 @@ body{
 .ask-container input{
   font-size: 18px;
   padding: 5px 0 5px 5px;
+  text-transform: capitalize;
+}
+
+.caps{
+  text-transform: capitalize;
 }
 
 
