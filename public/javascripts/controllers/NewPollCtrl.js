@@ -7,6 +7,19 @@ function NewPollCtrl($scope, $http, $location, $q) {
     }]
   };
 
+  $scope.cbstate="not-pressed";
+
+  inputTyped = function(){
+    $scope.cbstate="pressed";
+  }
+
+  $scope.smartText = function(input1Text, input2Text){
+    var p1, p2;
+    input1Text === "" ? p1 = "___ " : p1 = input1Text + " ";
+    input2Text === "" ? p2 = "..." : p2 = " " + input2Text;
+    return p1 + "and" + p2;
+  }
+
   $scope.addChoice = function() {
 
     if ($scope.poll.options.length > 3) {

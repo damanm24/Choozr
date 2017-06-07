@@ -1,10 +1,15 @@
 <div class ="ask-container">
-      <div>
-        <h1>Choose between <span class="caps">{{poll.options[0].text}}</span> and <span class="caps">{{poll.options[1].text}}</span></h1>
+    <div ng-switch="cbstate">
+      <div ng-switch-when="not-pressed">
+        <h1>Choose between...</h1>
       </div>
+      <div ng-switch-when="pressed">
+        <h1>Choose between {{smartText(poll.options[0].text, poll.options[1].text)}}</h1>
+      </div>
+    </div>
     <form role="form" ng-submit="submitChoice()">
       <div class="input" ng-repeat="choice in poll.options">
-        <input maxlength="15" type="text"  ng-model="choice.text" ng-change="temp=choice.text" placeholder="Choice {{$index+1}}"><br>
+        <input onkeypress="inputTyped()" maxlength="15" type="text"  ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
       </div>
       <button class="add" type="button" ng-click="addChoice()">+</button>
       <button class="create" type="submit">Create</button>
