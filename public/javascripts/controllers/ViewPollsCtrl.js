@@ -62,12 +62,13 @@ function ViewPollsCtrl($q, $scope, $http) {
   defer.promise
     .then(function() {
       $http.get('/api/getPolls/').success(function(allPolls) {
+        console.log('1');
         console.log(allPolls);
         $scope.polls = allPolls;
-        $scope.poll = $scope.polls[0];
-        console.log($scope.polls[0].options[0].text);
       });
     }).then(function() {
+      console.log('2');
+      $scope.addStates();
     });
 
     defer.resolve();
