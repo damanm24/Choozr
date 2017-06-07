@@ -1,4 +1,5 @@
 function ViewPollsCtrl($q, $scope, $http) {
+
   $scope.addStates = function() {
     for (var i = 0; i < $scope.polls.length; i++) {
       $scope.polls[i].moduleState = "notVoted";
@@ -32,36 +33,12 @@ function ViewPollsCtrl($q, $scope, $http) {
     defer.resolve();
   };
 
-  $scope.calculatePercentage = function() {
-    var sum = 0;
-    for (var i = 0; i < $scope.poll.options.length; i++) {
-      sum += $scope.poll.options[i].votes;
-    }
-
-    if (sum > 0) {
-      for (var i = 0; i < $scope.poll.options.length; i++) {
-        $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
-        $scope.poll.options[i].height = $scope.poll.options[i].percentage * 3;
-      }
-    } else {
-      for (var i = 0; i < $scope.poll.options.length; i++) {
-        $scope.poll.options[i].percentage = 0;
-      }
-    }
-
-    if ($scope.poll.options.length = 2) {
-      $scope.poll.options[0].color = "#000"
-      $scope.poll.options[1].color = "#000"
-      if ($scope.poll.options[0].percentage > $scope.poll.options[1].percentage)($scope.poll.options[0].color = "#ff5765");
-      if ($scope.poll.options[0].percentage < $scope.poll.options[1].percentage)($scope.poll.options[1].color = "#ff5765");
-    }
-  };
-
   var defer = $q.defer();
 
   defer.promise
     .then(function() {
-      $http.get('/api/getPolls/').success(function(allPolls) {
+      console.log("first")
+      $http.get('/api/viewpolls/').success(function(allPolls) {
         console.log('1');
         console.log(allPolls);
         $scope.polls = allPolls;

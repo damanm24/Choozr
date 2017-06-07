@@ -1,5 +1,5 @@
-<div ng-repeat="poll in polls">
-  <div ng-switch="moduleState" class="po-container">
+<div>
+  <div ng-repeat="poll in polls" ng-switch="moduleState" class="po-container">
     <div ng-switch-when="notVoted">
       <form class="op-container" ng-style="{'background-image' : option.bgurl}" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id, {{$index}})">
         <div class="rec rec-prevote"></div>
@@ -15,5 +15,4 @@
     </div>
   </div>
   <hr width="75%">
-</div>
 </div>
