@@ -37,16 +37,12 @@ function ViewPollsCtrl($q, $scope, $http) {
 
   defer.promise
     .then(function() {
-      console.log("first")
-      $http.get('/api/viewpolls/').success(function(allPolls) {
-        console.log('1');
+      $http.get('/api/getpolls/').success(function(allPolls) {
         console.log(allPolls);
         $scope.polls = allPolls;
+        $scope.addStates();
       });
-    }).then(function() {
-      console.log('2');
-      $scope.addStates();
-    });
+    })
 
     defer.resolve();
 
