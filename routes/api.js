@@ -52,7 +52,7 @@ router.put('/vote', function (req, res) {
     });
 });
 
-router.get('/viewPolls', function (req, res) {
+router.get('/getPolls', function (req, res) {
     Poll.find({}, function (err, foundPolls) {
         if (err) throw err;
         if (!foundPolls) {
