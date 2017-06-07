@@ -15,8 +15,8 @@ function NewPollCtrl($scope, $http, $location, $q) {
 
   $scope.smartText = function(input1Text, input2Text){
     var p1, p2;
-    input1Text === "" ? p1 = "___ " : p1 = input1Text + " ";
-    input2Text === "" ? p2 = "..." : p2 = " " + input2Text;
+    input1Text === "" ? p1 = "____ " : p1 = input1Text.replace(/\b\w/g, function(l){ return l.toUpperCase() }) + " ";
+    input2Text === "" ? p2 = "..." : p2 = " " + input2Text.replace(/\b\w/g, function(l){ return l.toUpperCase() });
     return p1 + "and" + p2;
   }
 
