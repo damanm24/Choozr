@@ -58,6 +58,7 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
     function retrievePoll(id){
         $http.get('/api/getPoll/' + id).success(function (singlePoll) {
             $scope.poll = singlePoll;
+            console.log(singlePoll);
             $scope.calculatePercentage();
             $scope.poll.options[0].bgurl = "url('http://www.conradnewyork.com/assets/img/Special-Offers/new-york-skyline-720x565.jpg')";
             $scope.poll.options[1].bgurl = "url('http://2.bp.blogspot.com/-D3UB8Nz30zM/USv8WYmvSdI/AAAAAAAAB5o/S8rA7KrQYdM/s1600/seattle+skyline.jpg')";
