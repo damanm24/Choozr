@@ -12,7 +12,7 @@ body{
   list-style: none;
   text-align: center;
   padding: 20px 0 20px 0;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .nav-bar li{
@@ -109,7 +109,7 @@ body{
 }
 
 .ask-container {
-  padding-top: 50px;
+  padding-top: 35px;
   text-align: center;
 }
 
