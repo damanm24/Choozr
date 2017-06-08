@@ -1,4 +1,4 @@
-<div>
+<div ng-init="loadPage()">
   <div ng-repeat="poll in polls" class="po-container">
     <div>
       <form class="op-container" ng-style="{'background-image' : option.bgurl}" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id, {{$index}})">
@@ -13,6 +13,6 @@
         <h2 class="text">{{option.text}}</h2>
       </form>
     </div> -->
+      <hr width="75%">
   </div>
-  <hr width="75%">
 </div>

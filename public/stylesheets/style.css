@@ -32,8 +32,7 @@ body{
 .po-container{
     text-align: center;
     display: block;
-    padding: 20px 20px 40px 20px;
-
+    padding: 20px 20px 20px 20px;
 }
 
 .op-container{
@@ -47,6 +46,7 @@ body{
     background-position: 50% 50%;
     background-color: grey;
     margin: 1px;
+    margin-bottom: 30px;
 }
 
 .op-container:hover{
