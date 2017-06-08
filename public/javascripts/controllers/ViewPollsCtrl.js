@@ -12,29 +12,9 @@ function ViewPollsCtrl($q, $scope, $http) {
     $rootScope.pollsVotedIn.includes(id) ? $scope.polls[currentPollIndex].moduleState = "voted" : $scope.polls[currentPollIndex].moduleState = "notVoted";
   }
 
-  $scope.submitVote = function(text, id, currentPollIndex) {
-    var payload = {
-      poll_id: id,
-      choice_text: text
-    };
 
-    var defer = $q.defer();
-
-    defer.promise.then(function() {
-      $http.put("/api/vote/", payload);
-    }).then(function() {
-      $scope.polls[currentPollIndex].moduleState = "voted";
-    }).then(function() {
-      $rootScope.pollsVotedIn.push(id);
-    }).then(function() {
-      $scope.loadSinglePolls(id, currentPollIndex);
-    });
-
-    defer.resolve();
-  };
-
+$scope.loadPage = function () {
   var defer = $q.defer();
-
   defer.promise
     .then(function() {
       $http.get('/api/getpolls/').success(function(allPolls) {
@@ -45,7 +25,7 @@ function ViewPollsCtrl($q, $scope, $http) {
     })
 
     defer.resolve();
-
+};
 
 
 
