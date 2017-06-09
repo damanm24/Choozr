@@ -1,8 +1,24 @@
 function ViewPollsCtrl($q, $scope, $http) {
 
+  $scope.polls =
+        	[
+            	{
+                	"name":	"module1",
+        			"moduleState": "notVoted"
+                },
+                {
+                	"name":	"module2",
+        			"moduleState": "voted"
+                }
+            ];
+
+
+
+
   $scope.addStates = function() {
     for (var i = 0; i < $scope.polls.length; i++) {
       $scope.polls[i].moduleState = "notVoted";
+      console.log($scope.polls[i]);
     }
   }
 
