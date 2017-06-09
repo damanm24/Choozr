@@ -8,7 +8,8 @@ mongoose.connect('mongodb://localhost/choosr');
 var PollSchema = mongoose.Schema({
     options: [{
         text: String,
-        votes: Number
+        votes: Number,
+        imageURL: String
     }]
 });
 
