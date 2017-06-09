@@ -54,7 +54,7 @@ function NewPollCtrl($scope, $http, $location, $q) {
 
   let promiseURL = function(searchTerm) {
     return new Promise(function(resolve, reject) {
-      $http.get('https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + searchTerm + '&count=1&offset=0&mkt=en-us&safeSearch=Strict', {
+      $http.get('https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + searchTerm + '&count=1&offset=0&mkt=en-us&safeSearch=Moderate&freshness=Month', {
         headers: {
           'Ocp-Apim-Subscription-Key': '7806128c275a4fe99a84ffc32e5b6026'
         }
