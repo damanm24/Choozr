@@ -146,11 +146,6 @@ span {
   text-transform: capitalize;
 }
 
-.caps{
-  text-transform: capitalize;
-}
-
-
 
 .ask-container .create, .ask-container .add{
   white-space: nowrap;

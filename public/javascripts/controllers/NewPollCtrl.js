@@ -15,9 +15,10 @@ function NewPollCtrl($scope, $http, $location, $q) {
 
   $scope.inputs = "not-pressed";
   $scope.cbwidth = "45px";
+  $scope.fsize = "200px";
+
   inputTyped = function() {
     $scope.inputs = "pressed";
-
   }
 
   $scope.smartText = function(input1Text, input2Text) {
@@ -43,6 +44,12 @@ function NewPollCtrl($scope, $http, $location, $q) {
         imageURL: "",
         vState: "not-voted"
       });
+    }
+    if ($scope.poll.options.length == 4) {
+      $scope.fsize = "175px";
+    }
+    if ($scope.poll.options.length == 4) {
+      $scope.fsize = "150px";
     }
   };
 

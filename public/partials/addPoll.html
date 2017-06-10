@@ -9,7 +9,7 @@
     </div>
     <form role="form" ng-submit="submitChoice()">
       <div class="input" ng-repeat="choice in poll.options">
-        <input onkeypress="inputTyped()" maxlength="17" type="text"  ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
+        <input ng-style="{'width' : fsize}" onkeypress="inputTyped()" maxlength="17" type="text"  ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
       </div>
       <button class="add" type="button" ng-click="addChoice()">+</button>
       <button class="create" type="submit">Create</button>
