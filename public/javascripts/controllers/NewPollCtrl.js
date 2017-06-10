@@ -77,9 +77,9 @@ function NewPollCtrl($scope, $http, $location, $q) {
         headers: {
           'Ocp-Apim-Subscription-Key': '7806128c275a4fe99a84ffc32e5b6026'
         }
-      }).success(function(response) {
+      }).then(function(response) {
         resolve(response);
-      }).error(function(err, status) {
+      }).catch(function(err, status) {
         reject(err);
       })
     })
@@ -108,7 +108,7 @@ function NewPollCtrl($scope, $http, $location, $q) {
       .then(function(data) {
         console.log(data);
         for(var i = 0; i < $scope.poll.options.length; i++) {
-          $scope.poll.options[i].imageURL = data[i].value[0].contentUrl;
+          $scope.poll.options[i].imageURL = data[i].data.value[0].contentUrl;
           $scope.poll.options[i].text = $scope.poll.options[i].text.replace(/\b\w/g, function(l) {
             return l.toUpperCase()
           });
