@@ -14,13 +14,16 @@ function NewPollCtrl($scope, $http, $location, $q) {
   };
 
   $scope.inputs = "not-pressed";
-
+  $scope.cbwidth = "45px";
   inputTyped = function() {
     $scope.inputs = "pressed";
+
   }
 
   $scope.smartText = function(input1Text, input2Text) {
     var p1, p2;
+    var w = 45 - (input1Text.length/2) - (input2Text.length/2);
+    $scope.cbwidth = w + "px";
     input1Text === "" ? p1 = "____ " : p1 = input1Text.replace(/\b\w/g, function(l) {
       return l.toUpperCase()
     }) + " ";

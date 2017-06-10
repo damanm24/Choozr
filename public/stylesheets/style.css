@@ -107,12 +107,16 @@ body{
 }
 
 .ask-container {
-  padding-top: 35px;
   text-align: center;
 }
 
+.ask-container #cb{
+  height: 90px;
+  line-height: 90px;
+  padding-bottom: 30px;
+}
+
 .ask-container h1{
-  font-size: 45px;
   font-weight: 100;
   color: black;
 }
