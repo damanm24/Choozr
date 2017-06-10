@@ -1,7 +1,7 @@
 /**
  * Created by daman on 5/31/2017.
  */
-var app = angular.module('Choozr', []);
+var app = angular.module('Choozr', ["ngRoute"]);
 
 app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
@@ -11,9 +11,9 @@ app.config(['$routeProvider', function($routeProvider) {
             otherwise({redirectTo: '/viewPolls'});
 }]);
 
-function MainCtrl($scope, $location, $rootScope) {
+app.controller("MainCtrl", function($scope, $location, $rootScope) {
     $scope.setRoute = function(route) {
         $location.path(route);
     };
     $rootScope.pollsVotedIn = [];
-}
+}) 
