@@ -36,15 +36,14 @@ body{
 }
 
 .op-container{
-    width: 400px;
     height: 300px;
+    width: 50px;
     overflow: hidden;
     display: inline-block;
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-color: grey;
     margin: 1px;
     margin-bottom: 30px;
 }
@@ -82,7 +81,6 @@ body{
     position: absolute;
     bottom: 0px;
     text-align: center;
-    font-size: 30px;
     margin: 0;
     width: 400px;
     color: white;

@@ -3,18 +3,20 @@ function NewPollCtrl($scope, $http, $location, $q) {
     options: [{
       text: '',
       votes: 0,
-      imageURL: ""
+      imageURL: "",
+      vState: "not-voted"
     }, {
       text: '',
       votes: 0,
-      imageURL: ""
+      imageURL: "",
+      vState: "not-voted"
     }]
   };
 
-  $scope.cbstate = "not-pressed";
+  $scope.inputs = "not-pressed";
 
   inputTyped = function() {
-    $scope.cbstate = "pressed";
+    $scope.inputs = "pressed";
   }
 
   $scope.smartText = function(input1Text, input2Text) {
@@ -35,7 +37,8 @@ function NewPollCtrl($scope, $http, $location, $q) {
       $scope.poll.options.push({
         text: '',
         votes: 0,
-        imageURL: ""
+        imageURL: "",
+        vState: "not-voted"
       });
     }
   };
@@ -54,7 +57,7 @@ function NewPollCtrl($scope, $http, $location, $q) {
 
   let promiseURL = function(searchTerm) {
     return new Promise(function(resolve, reject) {
-      $http.get('https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + searchTerm + '&count=1&offset=0&mkt=en-us&safeSearch=Moderate&freshness=Month', {
+      $http.get('https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + searchTerm + '&count=1&offset=0&mkt=en-us&safeSearch=Moderate&freshness=month', {
         headers: {
           'Ocp-Apim-Subscription-Key': '7806128c275a4fe99a84ffc32e5b6026'
         }
@@ -90,6 +93,9 @@ function NewPollCtrl($scope, $http, $location, $q) {
         console.log(data);
         for(var i = 0; i < $scope.poll.options.length; i++) {
           $scope.poll.options[i].imageURL = data[i].value[0].contentUrl;
+          $scope.poll.options[i].text = $scope.poll.options[i].text.replace(/\b\w/g, function(l) {
+            return l.toUpperCase()
+          });
         }
         postPoll();
       });
