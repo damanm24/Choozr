@@ -54,6 +54,12 @@ function NewPollCtrl($scope, $http, $location, $q) {
         isValid = false;
         break;
       }
+      for(var j = i + 1; j < $scope.poll.options.length; j++){
+        if($scope.poll.options[i].text === $scope.poll.options[j].text){
+          isValid = false;
+          break;
+        }
+      }
     }
     return isValid;
   }
