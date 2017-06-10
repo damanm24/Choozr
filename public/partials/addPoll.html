@@ -11,7 +11,8 @@
       <div class="input" ng-repeat="choice in poll.options">
         <input ng-style="{'width' : fsize}" onkeypress="inputTyped()" maxlength="17" type="text"  ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
       </div>
-      <button class="add" type="button" ng-click="addChoice()">+</button>
+      <button ng-if="ccount == 2 || ccount == 3" class="add" type="button" ng-click="addChoice()">+</button>
+      <button ng-if="ccount == 3 || ccount == 4" class="add" type="button" ng-click="subChoice()">-</button>
       <button class="create" type="submit">Create</button>
     </form>
 </div>

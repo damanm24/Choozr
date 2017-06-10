@@ -16,6 +16,7 @@ function NewPollCtrl($scope, $http, $location, $q) {
   $scope.inputs = "not-pressed";
   $scope.cbwidth = "45px";
   $scope.fsize = "200px";
+  $scope.ccount = 2;
 
   inputTyped = function() {
     $scope.inputs = "pressed";
@@ -35,23 +36,26 @@ function NewPollCtrl($scope, $http, $location, $q) {
   }
 
   $scope.addChoice = function() {
-    if ($scope.poll.options.length > 3) {
-      console.log("Too many choices");
-    } else {
-      $scope.poll.options.push({
-        text: '',
-        votes: 0,
-        imageURL: "",
-        vState: "not-voted"
-      });
-    }
-    if ($scope.poll.options.length == 4) {
+    $scope.poll.options.push({
+      text: '',
+      votes: 0,
+      imageURL: "",
+      vState: "not-voted"
+    });
+    $scope.ccount++;
+    if ($scope.poll.options.length == 3) {
       $scope.fsize = "175px";
     }
     if ($scope.poll.options.length == 4) {
       $scope.fsize = "150px";
     }
   };
+
+  $scope.subChoice = function(){
+    $scope.poll.options.pop();
+    $scope.ccount = $scope.ccount - 1;
+  }
+
 
 
   function validatePoll() {
