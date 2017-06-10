@@ -4,7 +4,7 @@
         <h1 ng-style="{'font-size' : cbwidth}">Choose between...</h1>
       </div>
       <div ng-switch-when="pressed">
-        <h1 ng-style="{'font-size' : cbwidth}">Choose between {{smartText(poll.options[0].text, poll.options[1].text)}}</h1>
+        <h1 ng-style="{'font-size' : cbwidth}">Choose between {{smartText()}}</h1>
       </div>
     </div>
     <form role="form" ng-submit="submitChoice()">

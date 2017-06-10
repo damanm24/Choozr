@@ -22,14 +22,16 @@ function NewPollCtrl($scope, $http, $location, $q) {
     $scope.inputs = "pressed";
   }
 
-  $scope.smartText = function(input1Text, input2Text) {
+  $scope.smartText = function() {
+
+
     var p1, p2;
-    var w = 45 - (input1Text.length/2) - (input2Text.length/2);
+    var w = 45 - ($scope.poll.options[0].text.length/2) - ($scope.poll.options[1].text.length/2);
     $scope.cbwidth = w + "px";
-    input1Text === "" ? p1 = "____ " : p1 = input1Text.replace(/\b\w/g, function(l) {
+    $scope.poll.options[0].text === "" ? p1 = "____ " : p1 = $scope.poll.options[0].text.replace(/\b\w/g, function(l) {
       return l.toUpperCase()
     }) + " ";
-    input2Text === "" ? p2 = "..." : p2 = " " + input2Text.replace(/\b\w/g, function(l) {
+    $scope.poll.options[1].text === "" ? p2 = "..." : p2 = " " + $scope.poll.options[1].text.replace(/\b\w/g, function(l) {
       return l.toUpperCase()
     });
     return p1 + "and" + p2;
