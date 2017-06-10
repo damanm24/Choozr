@@ -54,6 +54,9 @@ function NewPollCtrl($scope, $http, $location, $q) {
   $scope.subChoice = function(){
     $scope.poll.options.pop();
     $scope.ccount = $scope.ccount - 1;
+    if ($scope.poll.options.length == 2) {
+      $scope.fsize = "200px";
+    }
   }
 
 
