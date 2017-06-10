@@ -1,49 +1,18 @@
-   <div>
-    <div ng-repeat="poll in polls">
-        <div ng-if="poll.moduleState  === 'notVoted'">
-          <!-- Template 1 -->
-          Not Voted: {{poll.name}}
+<div ng-init="loadPage()" ng-repeat="poll in polls">
+    <div ng-switch="vState" class="po-container">
+        <div ng-switch-when="not-voted">
+          <form class="op-container" ng-style="{'background-image' : option.bgurl, 'width' : option.width}" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id)" >
+            <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
+            <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
+          </form>
         </div>
-        <div ng-if="poll.moduleState === 'voted'">
-          <!-- Template 2 -->
-          Voted: {{poll.name}}
+        <div ng-switch-when="voted">
+          <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}">
+            <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color, 'width' : option.width}"></div>
+            <h1 class="percent" ng-style="{'width' : option.width}">{{option.percentage}}%</h1>
+            <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
+          </form>
         </div>
     </div>
+    <hr width="75%">
 </div>
-
-
-
-
-
-<!---<div ng-init="loadPage()">
-    <div ng-repeat="poll in polls">
-        <span>poll.moduleState: {{poll.moduleState}}</span>
-        <div ng-if="poll.moduleState  === 'notVoted'">
-          //Template 1
-        </div>
-        <div ng-if="poll.moduleState === 'voted'">
-          //Template 2
-        </div>
-    </div>
-</div>
-
-
-
-<div ng-init="loadPage()">
-    <div ng-repeat="poll in polls" class="po-container">
-        <div ng-if="poll.moduleState  == 'notVoted'">
-            <form class="op-container" ng-style="{'background-image' : option.bgurl}" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id, {{$index}})">
-                <div class="rec rec-prevote"></div>
-                <h2 class="text">{{option.text}}</h2>
-            </form>
-        </div>
-        <div ng-if="poll.moduleState == 'voted'">
-            <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl}">
-                <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color}"></div>
-                <h1 class="percent">{{option.percentage}}%</h1>
-                <h2 class="text">{{option.text}}</h2>
-            </form>
-        </div>
-        <hr width="75%">
-    </div>
-</div> -->
