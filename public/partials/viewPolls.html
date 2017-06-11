@@ -1,7 +1,7 @@
-<div ng-repeat="poll in polls">
+<div ng-repeat="poll in polls" ng-init="currentPollIndex=$index">
     <div class="po-container">
         <div>
-          <form class="op-container" ng-style="{'background-image' : option.bgurl, 'width' : option.width}" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id, {{$parent.$index}})" >
+          <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}"  ng-click="submitVote(option.text, poll._id, $parent.$index)" >
             <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
             <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
           </form>
