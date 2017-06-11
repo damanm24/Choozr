@@ -28,7 +28,7 @@ function ViewPollsCtrl($q, $scope, $http) {
 
   let sendVoteRequest = function(payload, currentPollIndex) {
     return new Promise((resolve, reject) => {
-        $http.put("/api/vote/", payload);
+        $http.put("/api/vote/", payload)
         .then(function(response) { //NOTE we've set up the /api/vote/ route to return the latest version of the poll by default, so NOTE we don't need another function to do that
             response.data.hasVoted = "true"; //Adds the property hasVoted, but set to true
             $scope.polls[currentPollIndex] = response.data; //then sets the index of that poll to the updated poll
@@ -37,7 +37,7 @@ function ViewPollsCtrl($q, $scope, $http) {
           .catch(function(err) {
             reject(err);
           });
-      }
+      })
     }
 
     $scope.submitVote = function(optionText, poll_id, currentPollIndex) {
@@ -61,7 +61,7 @@ function ViewPollsCtrl($q, $scope, $http) {
       $scope.polls[currentPollIndex].options.forEach(function(element) {
         sum += element
       })
-      for (var i = 0; i < $scope.poll.$scope.polls[currentPollIndex]..length; i++) {
+      for (var i = 0; i < $scope.polls[currentPollIndex].length; i++) {
         $scope.polls[currentPollIndex].options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
         $scope.polls[currentPollIndex].options[i].height = $scope.poll.options[i].percentage * 3;
         $scope.polls[currentPollIndex].options[i].color = "black";
