@@ -7,6 +7,7 @@
           </form>
         </div>
         <div ng-if="poll.hasVoted === 'true'">
+          <h1> true </h1>
           <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}">
             <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color, 'width' : option.width}"></div>
             <h1 class="percent" ng-style="{'width' : option.width}">{{option.percentage}}%</h1>

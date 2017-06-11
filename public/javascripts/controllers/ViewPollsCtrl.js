@@ -17,8 +17,8 @@ function ViewPollsCtrl($q, $scope, $http) {
   loadPage() //LoadPage gets called when the page loads.
     .then(function(data) {
       for (var i = 0; i < $scope.polls.length; i++) { //The outer for-loop adds a hasVoted property which is set to false by default
-        $scope.polls[i].hasVoted = "false";
-        for (var j = 0; j < $scope.polls[i].options.length; j++) { //This for loop was copied from the GetPollCtrl and it gets the bgurl and the width
+					$scope.polls[i].hasVoted = "false";
+				for (var j = 0; j < $scope.polls[i].options.length; j++) { //This for loop was copied from the GetPollCtrl and it gets the bgurl and the width
           $scope.polls[i].options[j].bgurl = "url('" + $scope.polls[i].options[j].imageURL + "')"; //NOTE its a nested forloop so it has to be polls[i] and then options[j]
           $scope.polls[i].options[j].width = 800 / ($scope.polls[i].options.length);
           $scope.$apply();
@@ -45,43 +45,48 @@ function ViewPollsCtrl($q, $scope, $http) {
         choice_text: optionText,
         poll_id: poll_id
       }
-      $scope.calculatePercentage(currentPollIndex); //DAMAN I moved this out btw, you can move it back if you want.
+       //DAMAN I moved this out btw, you can move it back if you want.
 
       sendVoteRequest(payload, currentPollIndex) //NOTE I haven't done anything with changing the view of a poll that has been voted on just an FYI
         .then(function(singlePoll) {
-          console.log("hello");
-
-        });
+					$scope.calculatePercentage(currentPollIndex);
+        })
+				.then(function(){
+				});
 
     }
 
-    $scope.calculatePercentage = function(currentPollIndex) {
-      console.log("hi");
-      var sum = 0;
-      $scope.polls[currentPollIndex].options.forEach(function(element) {
-        sum += element
-      })
-      for (var i = 0; i < $scope.polls[currentPollIndex].length; i++) {
-        $scope.polls[currentPollIndex].options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
-        $scope.polls[currentPollIndex].options[i].height = $scope.poll.options[i].percentage * 3;
-        $scope.polls[currentPollIndex].options[i].color = "black";
-      }
-      var maxValue = $scope.polls[currentPollIndex].options[0].percentage;
-      var maxIndex = 0;
-      var maxCount = 0;
-      for (var i = 1; i < $scope.polls[currentPollIndex].options.length; i++) {
-        if ($scope.polls[currentPollIndex].options[i].percentage > maxValue) {
-          maxValue = $scope.polls[currentPollIndex].options[i].percentage;
-          maxIndex = i;
-        }
-      }
+		$scope.calculatePercentage = function(currentPollIndex) {
+	 var sum = 0;
+	 for (var i = 0; i < $scope.polls[currentPollIndex].options.length; i++) {
+		 sum +=  $scope.polls[currentPollIndex].options[i].votes;
+	 }
+	 if (sum > 0) {
+		 for (var i = 0; i < $scope.polls[currentPollIndex].options.length; i++) {
+			 $scope.polls[currentPollIndex].options[i].percentage = Math.round(($scope.polls[currentPollIndex].options[i].votes / sum) * 100);
+			 $scope.polls[currentPollIndex].options[i].height = $scope.polls[currentPollIndex].options[i].percentage * 3;
+			 $scope.polls[currentPollIndex].options[i].color = "black";
+		 }
+	 } else {
+		 for (var i = 0; i < $scope.poll.options.length; i++) {
+			 $scope.polls[currentPollIndex].options[i].percentage = 0;
+		 }
+	 }
+	 var maxValue = $scope.polls[currentPollIndex].options[0].percentage;
+	 var maxIndex = 0;
+	 var maxCount = 0;
+	 for (var i = 1; i < $scope.polls[currentPollIndex].options.length; i++) {
+		 if ($scope.polls[currentPollIndex].options[i].percentage > maxValue) {
+			 maxValue = $scope.polls[currentPollIndex].options[i].percentage;
+			 maxIndex = i;
+		 }
+	 }
 
       for (var i = 0; i < $scope.polls[currentPollIndex].options.length; i++) {
         if ($scope.polls[currentPollIndex].options[i].percentage == maxValue) {
           maxCount++;
         }
       }
-
       if (maxCount == 1) {
         $scope.polls[currentPollIndex].options[maxIndex].color = "#ff5765";
       }
