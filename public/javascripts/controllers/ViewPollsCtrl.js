@@ -37,7 +37,7 @@ function ViewPollsCtrl($q, $scope, $http) {
 			})
 			.catch(function(err) {
 				reject(err);
-			});
+			};
 	}
 
 	$scope.submitVote = function(optionText, poll_id, currentPollIndex) {
@@ -45,10 +45,46 @@ function ViewPollsCtrl($q, $scope, $http) {
 			choice_text: optionText,
 			poll_id: poll_id
 		}
+		$scope.calculatePercentage(currentPollIndex); //DAMAN I moved this out btw, you can move it back if you want. 
+
 		sendVoteRequest(payload, currentPollIndex) //NOTE I haven't done anything with changing the view of a poll that has been voted on just an FYI
 			.then(function(singlePoll) {
-				//NOTE calculatePercentage should go here
+				console.log("hello");
+
 			});
 
 	}
+
+	$scope.calculatePercentage = function(currentPollIndex) {
+		console.log("hi");
+		var sum = 0;
+		$scope.polls[currentPollIndex].options.forEach(function(element) {
+			sum += element
+		})
+		for (var i = 0; i < $scope.poll.$scope.polls[currentPollIndex]..length; i++) {
+			$scope.polls[currentPollIndex].options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
+			$scope.polls[currentPollIndex].options[i].height = $scope.poll.options[i].percentage * 3;
+			$scope.polls[currentPollIndex].options[i].color = "black";
+		}
+		var maxValue = $scope.polls[currentPollIndex].options[0].percentage;
+		var maxIndex = 0;
+		var maxCount = 0;
+		for (var i = 1; i < $scope.polls[currentPollIndex].options.length; i++) {
+			if ($scope.polls[currentPollIndex].options[i].percentage > maxValue) {
+				maxValue = $scope.polls[currentPollIndex].options[i].percentage;
+				maxIndex = i;
+			}
+		}
+
+		for (var i = 0; i < $scope.polls[currentPollIndex].options.length; i++) {
+			if ($scope.polls[currentPollIndex].options[i].percentage == maxValue) {
+				maxCount++;
+			}
+		}
+
+		if (maxCount == 1) {
+			$scope.polls[currentPollIndex].options[maxIndex].color = "#ff5765";
+		}
+	};
+
 }
