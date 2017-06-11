@@ -21,11 +21,14 @@ function ViewPollsCtrl($q, $scope, $http) {
 				for (var j = 0; j < $scope.polls[i].options.length; j++) { //This for loop was copied from the GetPollCtrl and it gets the bgurl and the width
 					$scope.polls[i].options[j].bgurl = "url('" + $scope.polls[i].options[j].imageURL + "')"; //NOTE its a nested forloop so it has to be polls[i] and then options[j]
 					$scope.polls[i].options[j].width = 800 / ($scope.polls[i].options.length);
+					$scope.$apply();
 				}
 			}
+			console.log($scope.polls)
 		});
 
 	let sendVoteRequest = function(payload, currentPollIndex) {
+		console.log("inside sendVoteRequest");
 		return new Promise((resolve, reject) => {
 				$http.put("/api/vote/", payload);
 			})
@@ -40,6 +43,7 @@ function ViewPollsCtrl($q, $scope, $http) {
 	}
 
 	$scope.submitVote = function(optionText, poll_id, currentPollIndex) {
+		console.log("inside submitVote");
 		var payload = {
 			choice_text: optionText,
 			poll_id: poll_id
