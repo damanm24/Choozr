@@ -24,11 +24,9 @@ function ViewPollsCtrl($q, $scope, $http) {
 					$scope.$apply();
 				}
 			}
-			console.log($scope.polls)
 		});
 
 	let sendVoteRequest = function(payload, currentPollIndex) {
-		console.log("inside sendVoteRequest");
 		return new Promise((resolve, reject) => {
 				$http.put("/api/vote/", payload);
 			})
@@ -43,7 +41,6 @@ function ViewPollsCtrl($q, $scope, $http) {
 	}
 
 	$scope.submitVote = function(optionText, poll_id, currentPollIndex) {
-		console.log("inside submitVote");
 		var payload = {
 			choice_text: optionText,
 			poll_id: poll_id
