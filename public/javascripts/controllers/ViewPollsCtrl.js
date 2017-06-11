@@ -52,7 +52,8 @@ function ViewPollsCtrl($q, $scope, $http) {
 					$scope.calculatePercentage(currentPollIndex);
         })
 				.then(function(){
-				});
+          $scope.$apply();
+        });
 
     }
 
@@ -66,6 +67,8 @@ function ViewPollsCtrl($q, $scope, $http) {
 			 $scope.polls[currentPollIndex].options[i].percentage = Math.round(($scope.polls[currentPollIndex].options[i].votes / sum) * 100);
 			 $scope.polls[currentPollIndex].options[i].height = $scope.polls[currentPollIndex].options[i].percentage * 3;
 			 $scope.polls[currentPollIndex].options[i].color = "black";
+       $scope.polls[currentPollIndex].options[i].bgurl = "url('" + $scope.polls[currentPollIndex].options[i].imageURL + "')"; //NOTE its a nested forloop so it has to be polls[i] and then options[j]
+       $scope.polls[currentPollIndex].options[i].width = 800 / ($scope.polls[currentPollIndex].options.length);
 		 }
 	 } else {
 		 for (var i = 0; i < $scope.poll.options.length; i++) {
@@ -90,6 +93,7 @@ function ViewPollsCtrl($q, $scope, $http) {
       if (maxCount == 1) {
         $scope.polls[currentPollIndex].options[maxIndex].color = "#ff5765";
       }
+
     };
 
   }
