@@ -13,6 +13,7 @@ function ViewPollsCtrl($q, $scope, $http) {
 		})
 	};
 
+
 	loadPage()
 		.then(function(data) {
 			for (var i = 0; i < $scope.polls.length; i++) {
@@ -20,4 +21,26 @@ function ViewPollsCtrl($q, $scope, $http) {
 			}
 		});
 
+	let sendVoteRequest = function(payload, currentPollIndex) {
+		return new Promise((resolve, reject) => {
+				$http.put("/api/vote/", payload);
+			})
+			.then(function(response) {
+				response.data.hasVoted = true;
+				$scope.polls[currentPollIndex] = response.data;
+				resolve(response.data);
+			});
+	}
+
+	$scope.submitVote = function(optionText, poll_id, currentPollIndex) {
+		var payload = {
+			choice_text: optionText,
+			poll_id: poll_id
+		}
+		sendVoteRequest(payload, currentPollIndex)
+			.then(function(singlePoll) {
+				//calculatePercentage should go here
+			});
+
+	}
 }
