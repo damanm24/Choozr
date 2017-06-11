@@ -40,7 +40,7 @@ function NewPollCtrl($scope, $http, $location, $q) {
 	$scope.addChoice = function() {
 		$scope.poll.options.push({
 			text: '',
-			votes: 1,
+			votes: 0,
 			imageURL: "",
 			vState: "not-voted"
 		});

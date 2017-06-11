@@ -4,7 +4,7 @@ function ViewPollsCtrl($q, $scope, $http) {
     return new Promise((resolve, reject) => {
       $http.get('/api/getPolls/')
         .then(function(response) {
-          $scope.polls = response.data;
+          $scope.polls = response.data.reverse();
           resolve(response.data);
         })
         .catch(function(err, status) {
@@ -61,7 +61,7 @@ function ViewPollsCtrl($q, $scope, $http) {
 	 var sum = 0;
 	 for (var i = 0; i < $scope.polls[currentPollIndex].options.length; i++) {
 		 sum +=  $scope.polls[currentPollIndex].options[i].votes;
-	 }
+	 } 
 	 if (sum > 0) {
 		 for (var i = 0; i < $scope.polls[currentPollIndex].options.length; i++) {
 			 $scope.polls[currentPollIndex].options[i].percentage = Math.round(($scope.polls[currentPollIndex].options[i].votes / sum) * 100);
