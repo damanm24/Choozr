@@ -132,14 +132,9 @@ form{
   padding-bottom: 30px;
 }
 
-h1{
+.ask-container h1{
   font-weight: 100;
   color: black;
-}
-
-.vheader{
-  text-align: center;
-  font-size: 45px;
 }
 
 .ask-container .input{
