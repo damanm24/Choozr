@@ -17,7 +17,25 @@
     </form>
 </div>
 
+
+
+<div ng-switch="vState" ng-init="()" class="po-container madePoll">
+    <div ng-switch-when="not-voted">
+      <form class="op-container" ng-style="{'background-image' : option.bgurl, 'width' : option.width}" ng-repeat="option in pollMade.options" ng-click="submitVote(option.text, poll._id)" >
+        <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
+        <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
+      </form>
+    </div>
+    <div ng-switch-when="voted">
+      <form class="op-container" ng-repeat="option in pollMade.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}">
+        <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color, 'width' : option.width}"></div>
+        <h1 class="percent" ng-style="{'width' : option.width}">{{option.percentage}}%</h1>
+        <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
+      </form>
+    </div>
+</div>
 <hr width="75%">
+
 
 
 <h1 class="vheader">Or choose between...</h1>

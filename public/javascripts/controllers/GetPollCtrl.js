@@ -1,9 +1,9 @@
 function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
 
 
-	$scope.poll = null;
+	$scope.pollMade = null;
 
-	$scope.loadPage = function() {
+	$scope.loadMadePoll = function() {
 		var id = $routeParams.id.replace(/\"/g, "");
 		retrievePoll(id);
 		$rootScope.pollsVotedIn.includes(id) ? $scope.vState = "voted" : $scope.vState = "not-voted";
@@ -35,50 +35,50 @@ function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
 
 	$scope.calculatePercentage = function() {
 	 var sum = 0;
-	 for (var i = 0; i < $scope.poll.options.length; i++) {
-		 sum += $scope.poll.options[i].votes;
+	 for (var i = 0; i < $scope.pollMade.options.length; i++) {
+		 sum += $scope.pollMade.options[i].votes;
 	 }
 
 	 if (sum > 0) {
-		 for (var i = 0; i < $scope.poll.options.length; i++) {
-			 $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
-			 $scope.poll.options[i].height = $scope.poll.options[i].percentage * 3;
-			 $scope.poll.options[i].color = "black";
+		 for (var i = 0; i < $scope.pollMade.options.length; i++) {
+			 $scope.pollMade.options[i].percentage = Math.round(($scope.pollMade.options[i].votes / sum) * 100);
+			 $scope.pollMade.options[i].height = $scope.pollMade.options[i].percentage * 3;
+			 $scope.pollMade.options[i].color = "black";
 		 }
 	 } else {
-		 for (var i = 0; i < $scope.poll.options.length; i++) {
-			 $scope.poll.options[i].percentage = 0;
+		 for (var i = 0; i < $scope.pollMade.options.length; i++) {
+			 $scope.pollMade.options[i].percentage = 0;
 		 }
 	 }
-	 var maxValue = $scope.poll.options[0].percentage;
+	 var maxValue = $scope.pollMade.options[0].percentage;
 	 var maxIndex = 0;
 	 var maxCount = 0;
-	 for (var i = 1; i < $scope.poll.options.length; i++) {
-		 if ($scope.poll.options[i].percentage > maxValue) {
-			 maxValue = $scope.poll.options[i].percentage;
+	 for (var i = 1; i < $scope.pollMade.options.length; i++) {
+		 if ($scope.pollMade.options[i].percentage > maxValue) {
+			 maxValue = $scope.pollMade.options[i].percentage;
 			 maxIndex = i;
 		 }
 	 }
 
-		for (var i = 0; i < $scope.poll.options.length; i++) {
-			if ($scope.poll.options[i].percentage == maxValue) {
+		for (var i = 0; i < $scope.pollMade.options.length; i++) {
+			if ($scope.pollMade.options[i].percentage == maxValue) {
 				maxCount++;
 			}
 		}
 
 		if (maxCount == 1) {
-			$scope.poll.options[maxIndex].color = "#ff5765";
+			$scope.pollMade.options[maxIndex].color = "#ff5765";
 		}
 	};
 
 	function retrievePoll(id) {
 		$http.get('/api/getPoll/' + id)
 			.then(function(singlePoll) {
-				$scope.poll = singlePoll.data;
+				$scope.pollMade = singlePoll.data;
 				$scope.calculatePercentage();
-				for (var i = 0; i < $scope.poll.options.length; i++) {
-					$scope.poll.options[i].bgurl = "url('" + $scope.poll.options[i].imageURL + "')";
-					$scope.poll.options[i].width = 800 / ($scope.poll.options.length);
+				for (var i = 0; i < $scope.pollMade.options.length; i++) {
+					$scope.pollMade.options[i].bgurl = "url('" + $scope.pollMade.options[i].imageURL + "')";
+					$scope.pollMade.options[i].width = 800 / ($scope.pollMade.options.length);
 				}
 			});
 	}

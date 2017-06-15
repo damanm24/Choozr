@@ -48,6 +48,10 @@ form{
     padding: 30px 20px 30px 20px;
 }
 
+.madePoll{
+  padding-top: 0px;
+}
+
 .op-container{
     height: 300px;
     width: 50px;
@@ -120,7 +124,6 @@ form{
 
 .ask-container {
   text-align: center;
-  padding-bottom: 10px;
 }
 
 .ask-container #cb{
