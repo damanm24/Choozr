@@ -26,7 +26,9 @@ function ViewPollsCtrl($q, $scope, $http, $cookies) {
       for (var i = 0; i < $scope.polls.length; i++) { //The outer for-loop adds a hasVoted property which is set to false by default
 
         if(pollsVotedIn.includes($scope.polls[i]._id)) {
+          $scope.calculatePercentage(i);
           $scope.polls[i].hasVoted = "true";
+
         } else {
           $scope.polls[i].hasVoted = "false";
         }
