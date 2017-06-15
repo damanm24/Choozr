@@ -224,10 +224,12 @@ function ViewPollsCtrl($q, $scope, $http, $cookies, $location, $routeParams, $ro
     $http.post('/api/pollPost', JSON.stringify($scope.poll))
       .then(
         function successCallback(response) {
-          console.log(response.data);
+          console.log(response);
           $scope.loadMadePoll(response.data);
         },
-        function failedCallback(response) {}
+        function failedCallback(response) {
+          console.log("failed");
+        }
       );
   };
 
@@ -284,7 +286,7 @@ function ViewPollsCtrl($q, $scope, $http, $cookies, $location, $routeParams, $ro
         $rootScope.pollsVotedIn.push(id);
       })
       .then(function() {
-        $scope.loadPage();
+        $scope.loadMadePoll(id);
       });
 
     defer.resolve();
@@ -292,6 +294,7 @@ function ViewPollsCtrl($q, $scope, $http, $cookies, $location, $routeParams, $ro
 
 
   function retrievePoll(id) {
+    console.log("hello" + id);
     $http.get('/api/getPoll/' + id)
       .then(function(singlePoll) {
         $scope.pollMade = singlePoll.data;

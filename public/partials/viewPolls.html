@@ -19,7 +19,7 @@
 
 
 
-<div ng-switch="vState" ng-init="()" class="po-container madePoll">
+<div ng-switch="vState" ng-init="loadMadePoll()" class="po-container madePoll">
     <div ng-switch-when="not-voted">
       <form class="op-container" ng-style="{'background-image' : option.bgurl, 'width' : option.width}" ng-repeat="option in pollMade.options" ng-click="submitVote(option.text, poll._id)" >
         <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
