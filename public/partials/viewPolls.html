@@ -1,7 +1,7 @@
 <div class ="ask-container">
     <div id="cb" ng-switch="inputs">
       <div ng-switch-when="not-pressed">
-        <h1 ng-style="{'font-size' : cbwidth}">Choose between...</h1>
+        <h1 ng-style="{'font-size' : cbwidth}">Create a poll between...</h1>
       </div>
       <div ng-switch-when="pressed">
         <h1 ng-style="{'font-size' : cbwidth}">Choose between {{smartText()}}</h1>
@@ -17,6 +17,7 @@
     </form>
 </div>
 
+<hr width="75%">
 
 <div ng-repeat="poll in polls">
     <div class="po-container">
