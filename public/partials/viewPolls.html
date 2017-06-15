@@ -11,40 +11,16 @@
       <div class="input" ng-repeat="choice in poll.options">
         <input ng-style="{'width' : fsize}" onkeypress="inputTyped()" maxlength="17" type="text"  ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
       </div>
-      <button ng-if="ccount == 2 || ccount == 3" class="addsub" type="button" ng-click="addChoice()">+</button>
-      <button ng-if="ccount == 3 || ccount == 4" class="addsub" type="button" ng-click="subChoice()">-</button>
+      <button ng-if="ccount < 4" class="addsub" type="button" ng-click="addChoice()">+</button>
+      <button ng-if="ccount > 2" class="addsub" type="button" ng-click="subChoice()">-</button>
       <button class="create" type="submit">Create</button>
     </form>
 </div>
 
-
-
-<div ng-switch="vState" ng-init="loadMadePoll()" class="po-container madePoll">
-    <div ng-switch-when="not-voted">
-      <form class="op-container" ng-style="{'background-image' : option.bgurl, 'width' : option.width}" ng-repeat="option in pollMade.options" ng-click="submitVote(option.text, poll._id)" >
-        <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
-        <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-      </form>
-    </div>
-    <div ng-switch-when="voted">
-      <form class="op-container" ng-repeat="option in pollMade.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}">
-        <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color, 'width' : option.width}"></div>
-        <h1 class="percent" ng-style="{'width' : option.width}">{{option.percentage}}%</h1>
-        <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-      </form>
-    </div>
-</div>
 <hr width="75%">
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
 <h1 class="vheader">Or choose between...</h1>
-=======
->>>>>>> parent of 0b72b97... Styling change but bug where when rectangle is 100%, it doesnt cover whole image
-=======
->>>>>>> parent of 0b72b97... Styling change but bug where when rectangle is 100%, it doesnt cover whole image
 <div ng-repeat="poll in polls">
     <div class="po-container">
         <div ng-if="poll.hasVoted === 'false'">
