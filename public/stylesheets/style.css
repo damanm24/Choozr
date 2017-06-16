@@ -37,15 +37,11 @@ span {
   color: #ff5765;
 }
 
-form{
-  padding-bottom: 20px;
-}
-
 
 .po-container{
     text-align: center;
     display: block;
-    padding: 30px 20px 30px 20px;
+    padding: 20px 20px 20px 20px;
 }
 
 .op-container{
@@ -58,6 +54,7 @@ form{
     background-repeat: no-repeat;
     background-position: 50% 50%;
     margin: 1px;
+    margin-bottom: 30px;
 }
 
 .op-container:hover{
@@ -120,7 +117,6 @@ form{
 
 .ask-container {
   text-align: center;
-  padding-bottom: 10px;
 }
 
 .ask-container #cb{
@@ -129,14 +125,9 @@ form{
   padding-bottom: 30px;
 }
 
-h1{
+.ask-container h1{
   font-weight: 100;
   color: black;
-}
-
-.vheader{
-  text-align: center;
-  font-size: 45px;
 }
 
 .ask-container .input{

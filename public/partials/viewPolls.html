@@ -1,26 +1,3 @@
-<div class ="ask-container">
-    <div id="cb" ng-switch="inputs">
-      <div ng-switch-when="not-pressed">
-        <h1 ng-style="{'font-size' : cbwidth}">Create a poll between...</h1>
-      </div>
-      <div ng-switch-when="pressed">
-        <h1 ng-style="{'font-size' : cbwidth}">Choose between {{smartText()}}</h1>
-      </div>
-    </div>
-    <form role="form" ng-submit="submitChoice()">
-      <div class="input" ng-repeat="choice in poll.options">
-        <input ng-style="{'width' : fsize}" onkeypress="inputTyped()" maxlength="17" type="text"  ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
-      </div>
-      <button ng-if="ccount < 4" class="addsub" type="button" ng-click="addChoice()">+</button>
-      <button ng-if="ccount > 2" class="addsub" type="button" ng-click="subChoice()">-</button>
-      <button class="create" type="submit">Create</button>
-    </form>
-</div>
-
-<hr width="75%">
-
-
-<h1 class="vheader">Or choose between...</h1>
 <div ng-repeat="poll in polls">
     <div class="po-container">
         <div ng-if="poll.hasVoted === 'false'">
