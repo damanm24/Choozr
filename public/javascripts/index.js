@@ -105,9 +105,8 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $q)
     $http.post('/api/pollPost', JSON.stringify($scope.poll))
       .then(
         function successCallback(response) {
-          console.log(response.data);
-          $location.path('/getPoll/' + JSON.stringify(response.data));
-          //console.log(response);
+          console.log("response.data is " + response.data);
+          $scope.$parent.$broadcast('pollMade', {pollId : response.data});
         },
         function failedCallback(response) {}
       );
@@ -255,4 +254,98 @@ app.controller("ViewPollsCtrl", function ViewPollsCtrl($q, $scope, $http, $cooki
 
   };
 
+});
+
+app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
+
+
+	$scope.poll = null;
+
+    $scope.$on('pollMade', function (event, args){
+      console.log("args.pollId are...");
+      console.log(args.pollId);
+      retrievePoll(args.pollId);
+    });
+
+  // $scope.loadMadePoll = function(id) {
+  //   console.log("hello?");
+	// 	retrievePoll(id);
+	// 	$rootScope.pollsVotedIn.includes(id) ? $scope.vState = "voted" : $scope.vState = "not-voted";
+	// };
+
+	$scope.submitVote = function(text, id) {
+		var payload = {
+			poll_id: id,
+			choice_text: text
+		};
+
+		var defer = $q.defer();
+
+		defer.promise.then(function() {
+				$http.put("/api/vote/", payload);
+			})
+			.then(function() {
+				$scope.vState = "voted";
+			})
+			.then(function() {
+				$rootScope.pollsVotedIn.push(id);
+			})
+			.then(function() {
+				$scope.loadMadePoll();
+			});
+
+		defer.resolve();
+	};
+
+	$scope.calculatePercentage = function() {
+	 var sum = 0;
+	 for (var i = 0; i < $scope.poll.options.length; i++) {
+		 sum += $scope.poll.options[i].votes;
+	 }
+
+	 if (sum > 0) {
+		 for (var i = 0; i < $scope.poll.options.length; i++) {
+			 $scope.poll.options[i].percentage = Math.round(($scope.poll.options[i].votes / sum) * 100);
+			 $scope.poll.options[i].height = $scope.poll.options[i].percentage * 3;
+			 $scope.poll.options[i].color = "black";
+		 }
+	 } else {
+		 for (var i = 0; i < $scope.poll.options.length; i++) {
+			 $scope.poll.options[i].percentage = 0;
+		 }
+	 }
+	 var maxValue = $scope.poll.options[0].percentage;
+	 var maxIndex = 0;
+	 var maxCount = 0;
+	 for (var i = 1; i < $scope.poll.options.length; i++) {
+		 if ($scope.poll.options[i].percentage > maxValue) {
+			 maxValue = $scope.poll.options[i].percentage;
+			 maxIndex = i;
+		 }
+	 }
+
+		for (var i = 0; i < $scope.poll.options.length; i++) {
+			if ($scope.poll.options[i].percentage == maxValue) {
+				maxCount++;
+			}
+		}
+
+		if (maxCount == 1) {
+			$scope.poll.options[maxIndex].color = "#ff5765";
+		}
+	};
+
+	function retrievePoll(id) {
+		$http.get('/api/getPoll/' + id)
+			.then(function(singlePoll) {
+				$scope.poll = singlePoll.data;
+        console.log("scope.poll is...");
+        console.log($scope.poll);
+				$scope.calculatePercentage();
+				for (var i = 0; i < $scope.poll.options.length; i++) {
+					$scope.poll.options[i].bgurl = "url('" + $scope.poll.options[i].imageURL + "')";
+					$scope.poll.options[i].width = 800 / ($scope.poll.options.length);
+				}
+			});
+	}
 });

@@ -41,7 +41,7 @@ span {
 .po-container{
     text-align: center;
     display: block;
-    padding: 20px 20px 20px 20px;
+    padding: 30px 20px 30px 20px;
 }
 
 .op-container{
@@ -54,7 +54,6 @@ span {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     margin: 1px;
-    margin-bottom: 30px;
 }
 
 .op-container:hover{
@@ -117,6 +116,7 @@ span {
 
 .ask-container {
   text-align: center;
+  padding-bottom: 30px;
 }
 
 .ask-container #cb{
