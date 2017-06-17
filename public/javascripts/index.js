@@ -105,7 +105,6 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $q)
     $http.post('/api/pollPost', JSON.stringify($scope.poll))
       .then(
         function successCallback(response) {
-          console.log("response.data is " + response.data);
           $scope.$parent.$broadcast('pollMade', {pollId : response.data});
         },
         function failedCallback(response) {}
@@ -122,7 +121,6 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $q)
       }
       Promise.all(promises)
         .then(function(data) {
-          console.log(data);
           for (var i = 0; i < $scope.poll.options.length; i++) {
             $scope.poll.options[i].imageURL = data[i].data.value[0].contentUrl;
             $scope.poll.options[i].text = $scope.poll.options[i].text.replace(/\b\w/g, function(l) {
@@ -132,7 +130,7 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $q)
           postPoll();
         });
     } else {
-      console.log("Not Valid Poll");
+       alert("Not Valid Poll");
     }
   }
 });
@@ -256,14 +254,12 @@ app.controller("ViewPollsCtrl", function ViewPollsCtrl($q, $scope, $http, $cooki
 
 });
 
-app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
+app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope, $cookies) {
 
-  $scope.vState = "not-voted";
-	$scope.poll = null;
+	//$scope.poll = null;
 
     $scope.$on('pollMade', function (event, args){
-      console.log("args.pollId are...");
-      console.log(args.pollId);
+      $scope.vState = "not-voted";
       retrievePoll(args.pollId);
     });
 
@@ -282,16 +278,20 @@ app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, 
 				$scope.vState = "voted";
 			})
 			.then(function() {
-				$rootScope.pollsVotedIn.push(id);
+        var pollsVotedIn = $cookies.get('votedIn');
+        pollsVotedIn = JSON.parse(pollsVotedIn);
+        pollsVotedIn.push(id);
+        $cookies.putObject('votedIn', pollsVotedIn);
 			})
 			.then(function() {
-				$scope.loadMadePoll();
+				retrievePoll(id);
 			});
 
 		defer.resolve();
 	};
 
 	$scope.calculatePercentage = function() {
+   console.log($scope.poll);
 	 var sum = 0;
 	 for (var i = 0; i < $scope.poll.options.length; i++) {
 		 sum += $scope.poll.options[i].votes;
@@ -333,8 +333,6 @@ app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, 
 		$http.get('/api/getPoll/' + id)
 			.then(function(singlePoll) {
 				$scope.poll = singlePoll.data;
-        console.log("scope.poll is...");
-        console.log($scope.poll);
 				$scope.calculatePercentage();
 				for (var i = 0; i < $scope.poll.options.length; i++) {
 					$scope.poll.options[i].bgurl = "url('" + $scope.poll.options[i].imageURL + "')";
