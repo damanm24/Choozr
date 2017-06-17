@@ -105,7 +105,8 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $co
       return new Promise(function(resolve, reject) {
         var pollsCreated = $cookies.get("pollsCreated");
         pollsCreated = JSON.parse(pollsCreated);
-        pollsCreated.push(id)
+        pollsCreated.push(id);
+        $cookies.putObject("pollsCreated", pollsCreated);
         resolve(id);
       })
     }
