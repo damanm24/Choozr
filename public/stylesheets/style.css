@@ -117,11 +117,12 @@ span {
     padding-bottom: 30px;
 }
 .ask-container h1,
-.view-container .cb {
+.view-container .cb,
+.np {
     font-weight: 100;
     color: black;
 }
-.view-container .cb {
+.view-container .cb, .np{
     font-size: 45px;
 }
 .ask-container .input {

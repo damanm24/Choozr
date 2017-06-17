@@ -33,22 +33,29 @@
   <div class="container">
     <div ng-controller="NewPollCtrl">
       <div class="ask-container">
-        <div id="cb" ng-switch="inputs">
-          <div ng-switch-when="not-pressed">
-            <h1 ng-style="{'font-size' : cbwidth}">Create a poll between...</h1>
+        <div ng-switch="aState">
+          <div ng-switch-when="not-asked">
+            <div id="cb" ng-switch="inputs">
+              <div ng-switch-when="not-pressed">
+                <h1 ng-style="{'font-size' : cbwidth}">Create a poll between...</h1>
+              </div>
+              <div ng-switch-when="pressed">
+                <h1 ng-style="{'font-size' : cbwidth}">Create a poll between {{smartText()}}</h1>
+              </div>
+            </div>
+            <form role="form" ng-submit="submitChoice()">
+              <div class="input" ng-repeat="choice in poll.options">
+                <input ng-style="{'width' : fsize}" onkeypress="inputTyped()" maxlength="17" type="text" ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
+              </div>
+              <button ng-if="ccount < 4" class="addsub" type="button" ng-click="addChoice()">+</button>
+              <button ng-if="ccount > 2" class="addsub" type="button" ng-click="subChoice()">-</button>
+              <button class="create" type="submit">Create</button>
+            </form>
           </div>
-          <div ng-switch-when="pressed">
-            <h1 ng-style="{'font-size' : cbwidth}">Choose between {{smartText()}}</h1>
+          <div ng-switch-when="asked">
+          <h1 class="np">You created a new poll </h1>
           </div>
         </div>
-        <form role="form" ng-submit="submitChoice()">
-          <div class="input" ng-repeat="choice in poll.options">
-            <input ng-style="{'width' : fsize}" onkeypress="inputTyped()" maxlength="17" type="text" ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
-          </div>
-          <button ng-if="ccount < 4" class="addsub" type="button" ng-click="addChoice()">+</button>
-          <button ng-if="ccount > 2" class="addsub" type="button" ng-click="subChoice()">-</button>
-          <button class="create" type="submit">Create</button>
-        </form>
       </div>
     </div>
 

@@ -4,6 +4,9 @@
 var app = angular.module('Choozr', ["ngRoute", "ngCookies"]);
 
 app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $q) {
+
+  $scope.aState = "not-asked";
+
     $scope.poll = {
         options: [{
             text: '',
@@ -108,6 +111,7 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $q)
                     $scope.$parent.$broadcast('pollMade', {
                         pollId: response.data
                     });
+                    $scope.aState="asked";
                 },
                 function failedCallback(response) {}
             );
