@@ -258,7 +258,7 @@ app.controller("ViewPollsCtrl", function ViewPollsCtrl($q, $scope, $http, $cooki
 
 app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope) {
 
-
+  $scope.vState = "not-voted";
 	$scope.poll = null;
 
     $scope.$on('pollMade', function (event, args){
@@ -267,14 +267,8 @@ app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, 
       retrievePoll(args.pollId);
     });
 
-  // $scope.loadMadePoll = function(id) {
-  //   console.log("hello?");
-	// 	retrievePoll(id);
-	// 	$rootScope.pollsVotedIn.includes(id) ? $scope.vState = "voted" : $scope.vState = "not-voted";
-	// };
-
 	$scope.submitVote = function(text, id) {
-		var payload = {
+    var payload = {
 			poll_id: id,
 			choice_text: text
 		};
