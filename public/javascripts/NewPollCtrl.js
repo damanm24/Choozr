@@ -1,4 +1,4 @@
-app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location) {
+app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $cookies) {
 
   $scope.aState = "not-asked";
 
@@ -15,6 +15,8 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location) {
             vState: "not-voted"
         }]
     };
+
+    $cookies.putObject('pollsCreated', []);
 
     $scope.inputs = "not-pressed";
     $scope.cbwidth = "45px";
@@ -99,14 +101,27 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location) {
         })
     };
 
+    let addIDToCookie = function(id) {
+      return new Promise(function(resolve, reject) {
+        var pollsCreated = $cookies.get("pollsCreated");
+        pollsCreated = JSON.parse(pollsCreated);
+        pollsCreated.push(id)
+        resolve(id);
+      })
+    }
+
     function postPoll() {
         $http.post('/api/pollPost', JSON.stringify($scope.poll))
             .then(
                 function successCallback(response) {
+                  addIDToCookie(response.data).then(function(data) {
                     $scope.$parent.$broadcast('pollMade', {
-                        pollId: response.data
+                        pollId: data
                     });
                     $scope.aState="asked";
+                  }).catch(function() {
+                    console.log("Error");
+                  });
                 },
                 function failedCallback(response) {}
             );
