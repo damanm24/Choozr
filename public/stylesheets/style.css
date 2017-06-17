@@ -1,50 +1,47 @@
-body{
+body {
     padding: 0;
     margin: 0;
     font-family: 'Arial', serif;
     background-color: white;
 }
-
-.nav-bar{
-  margin: 0;
-  background-color: #f9f9f9;
-  color: #ffffff;
-  list-style: none;
-  text-align: center;
-  padding: 10px 0 10px 0;
-  margin-bottom: 25px;
+.nav-bar {
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #ffffff;
+    list-style: none;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    margin-bottom: 25px;
 }
 img {
-  vertical-align: middle;
-  height: 30px;
+    vertical-align: middle;
+    height: 30px;
 }
 span {
-  display: inline-block;
-  vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
-
-.nav-bar li{
-  display: inline-block;
-  padding: 0 25px 0 25px;
+.nav-bar li {
+    display: inline-block;
+    padding: 0 25px 0 25px;
 }
-
-.nav-bar li a{
-  text-decoration: none;
-  color: black;
+.nav-bar li a {
+    text-decoration: none;
+    color: black;
 }
-
-.nav-bar li a:hover{
-  color: #ff5765;
+.nav-bar li a:hover {
+    color: #ff5765;
 }
-
-
-.po-container{
+.po-container {
     text-align: center;
     display: block;
     padding: 30px 20px 30px 20px;
 }
-
-.op-container{
+.madePoll {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.op-container {
     height: 300px;
     width: 50px;
     overflow: hidden;
@@ -55,123 +52,115 @@ span {
     background-position: 50% 50%;
     margin: 1px;
 }
-
-.op-container:hover{
-  cursor: pointer;
+.op-container:hover {
+    cursor: pointer;
 }
-
-.rec{
+.rec {
     position: absolute;
     bottom: 0px;
     width: 400px;
     filter: brightness(100%);
     opacity: 0.6;
 }
-
-.rec-prevote{
-      height: 60px;
-      background-color: black;
-
-}
-
-.rec-postvote {
-  animation: AnimRec 1s ease-out;
-  }
-
-@keyframes AnimRec {
-  from {
+.rec-prevote {
     height: 60px;
-        background-color: black;
-  }
+    background-color: black;
 }
-
-.text, .percent{
+.rec-postvote {
+    animation: AnimRec 1s ease-out;
+}
+@keyframes AnimRec {
+    from {
+        height: 60px;
+        background-color: black;
+    }
+}
+.text,
+.percent {
     position: absolute;
     bottom: 0px;
     text-align: center;
     margin: 0;
     width: 400px;
     color: white;
-    text-shadow:
-    -0.5px -0.5px 0 #333,
-    0.5px -0.5px 0 #333,
-    -0.5px 0.5px 0 #333,
-    0.5px 0.5px 0 #333;
+    text-shadow: -0.5px -0.5px 0 #333, 0.5px -0.5px 0 #333, -0.5px 0.5px 0 #333, 0.5px 0.5px 0 #333;
 }
-
-.text{
-  bottom: 10px;
+.text {
+    bottom: 10px;
 }
-
-.percent{
+.percent {
     margin: 0;
     bottom: 60px;
     font-size: 50px;
-    -webkit-animation: fadein 1s ease-out; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 1s ease-out; /* Firefox < 16 */
-        -ms-animation: fadein 1s ease-out; /* Internet Explorer */
-         -o-animation: fadein 1s ease-out; /* Opera < 12.1 */
-            animation: fadein 1s ease-out;
-}
+    -webkit-animation: fadein 1s ease-out;
+    /* Safari, Chrome and Opera > 12.1 */
 
-.ask-container {
-  text-align: center;
-  padding-bottom: 30px;
-}
+    -moz-animation: fadein 1s ease-out;
+    /* Firefox < 16 */
 
-.ask-container #cb{
-  height: 90px;
-  line-height: 90px;
-  padding-bottom: 30px;
-}
+    -ms-animation: fadein 1s ease-out;
+    /* Internet Explorer */
 
-.ask-container h1{
-  font-weight: 100;
-  color: black;
-}
+    -o-animation: fadein 1s ease-out;
+    /* Opera < 12.1 */
 
-.ask-container .input{
-  display: inline-block;
-    margin-left:;
+    animation: fadein 1s ease-out;
+}
+.ask-container,
+.view-container {
+    text-align: center;
+    padding-bottom: 30px;
+}
+.ask-container #cb {
+    height: 90px;
+    line-height: 90px;
+    padding-bottom: 30px;
+}
+.ask-container h1,
+.view-container .cb {
+    font-weight: 100;
+    color: black;
+}
+.view-container .cb {
+    font-size: 45px;
+}
+.ask-container .input {
+    display: inline-block;
+    margin-left: ;
     margin-right: auto;
     padding: 0 0 30px 20px;
 }
-
-.ask-container input{
-  font-size: 18px;
-  padding: 5px 0 5px 5px;
-  text-transform: capitalize;
+.ask-container input {
+    font-size: 18px;
+    padding: 5px 0 5px 5px;
+    text-transform: capitalize;
 }
-
-
-.ask-container .create, .ask-container .addsub{
-  white-space: nowrap;
-  cursor: pointer;
-  border: transparent;
-
+.ask-container .create,
+.ask-container .addsub {
+    white-space: nowrap;
+    cursor: pointer;
+    border: transparent;
 }
-
-.ask-container .create:hover, .ask-container .add:hover{
-      background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+.ask-container .create:hover,
+.ask-container .add:hover {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
 }
-
-.ask-container .create{
-  zoom: 1.5;
-  display: block;
-  margin: 0 auto;
-  padding: 5px 20px 5px 20px;
-  border-radius: 2px;
-  background-color: #ff5765;
-  color: white;
+.ask-container .create {
+    zoom: 1.5;
+    display: block;
+    margin: 0 auto;
+    padding: 5px 20px 5px 20px;
+    border-radius: 2px;
+    background-color: #ff5765;
+    color: white;
 }
-
-.ask-container .addsub{
-  height: 35px;
-  width: 35px;
-  font-size: 20px;
-  border-radius: 2px 2px 2px 2px;
-  background-color: white;
-  color: #ff5765;
+.ask-container .addsub {
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    border-radius: 2px 2px 2px 2px;
+    background-color: white;
+    color: #ff5765;
 }
 
 @keyframes fadein {
