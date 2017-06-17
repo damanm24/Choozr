@@ -1,4 +1,4 @@
-app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $routeParams, $q, $rootScope, $cookies) {
+app.controller("GetPollCtrl", function GetPollCtrl($scope, $http, $cookies, $q) {
 
     //$scope.poll = null;
 

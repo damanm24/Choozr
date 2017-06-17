@@ -1,4 +1,4 @@
-app.controller("ViewPollsCtrl", function ViewPollsCtrl($q, $scope, $http, $cookies) {
+app.controller("ViewPollsCtrl", function ViewPollsCtrl($scope, $http, $cookies) {
     //This is the load page promise it sets the $scope.polls to the response it gets back
     let loadPage = function() {
         return new Promise((resolve, reject) => {

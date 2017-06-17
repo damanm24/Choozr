@@ -1,4 +1,4 @@
-app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $q) {
+app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location) {
 
   $scope.aState = "not-asked";
 
