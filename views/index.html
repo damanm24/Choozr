@@ -10,8 +10,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.4/angular-resource.min.js"></script>
 
     <script src="/javascripts/index.js"></script>
@@ -19,87 +18,18 @@
     <script src="/javascripts/GetPollCtrl.js"></script>
     <script src="/javascripts/ViewPollsCtrl.js"></script>
 
+
     <link rel="shortcut icon" href="http://i.picresize.com/images/2017/06/10/Nqs9G.png" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
 </head>
 
 <body>
-    <ul class="nav-bar">
-        <img src="http://i.picresize.com/images/2017/06/10/Nqs9G.png" border="0">
-        <span><li><a href="" ng-click="setRoute('')">Choozr</a></li>
-            <li><a href="" ng-click="setRoute('viewPolls')">My Polls</a></li>
-  </ul>
-
-  <div class="container">
-    <div ng-controller="NewPollCtrl">
-      <div class="ask-container">
-        <div ng-switch="aState">
-          <div ng-switch-when="not-asked">
-            <div id="cb" ng-switch="inputs">
-              <div ng-switch-when="not-pressed">
-                <h1 ng-style="{'font-size' : cbwidth}">Create a poll between...</h1>
-              </div>
-              <div ng-switch-when="pressed">
-                <h1 ng-style="{'font-size' : cbwidth}">Create a poll between {{smartText()}}</h1>
-              </div>
-            </div>
-            <form role="form" ng-submit="submitChoice()">
-              <div class="input" ng-repeat="choice in poll.options">
-                <input ng-style="{'width' : fsize}" onkeypress="inputTyped()" maxlength="17" type="text" ng-model="choice.text" placeholder="Choice {{$index+1}}"><br>
-              </div>
-              <button ng-if="ccount < 4" class="addsub" type="button" ng-click="addChoice()">+</button>
-              <button ng-if="ccount > 2" class="addsub" type="button" ng-click="subChoice()">-</button>
-              <button class="create" type="submit">Create</button>
-            </form>
-          </div>
-          <div ng-switch-when="asked">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div ng-controller="GetPollCtrl" ng-switch="vState" class="po-container madePoll">
-        <div ng-switch-when="not-voted">
-          <form class="op-container" ng-style="{'background-image' : option.bgurl, 'width' : option.width}" ng-repeat="option in poll.options" ng-click="submitVote(option.text, poll._id)" >
-            <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
-            <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-          </form>
-        </div>
-        <div ng-switch-when="voted">
-          <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}">
-            <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color, 'width' : option.width}"></div>
-            <h1 class="percent" ng-style="{'width' : option.width}">{{option.percentage}}%</h1>
-            <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-          </form>
-        </div>
-    </div>
-    <hr width="75%">
-
-    <div ng-controller="ViewPollsCtrl">
-      <div class="view-container">
-      <h1 class="cb">Or choose between...</h1>
-      <div ng-repeat="poll in polls">
-        <div class="po-container">
-          <div ng-if="poll.hasVoted === 'false'">
-            <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}" ng-click="submitVote(option.text, poll._id, $parent.$index)">
-              <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
-              <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-            </form>
-          </div>
-          <div ng-if="poll.hasVoted === 'true'">
-            <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}">
-              <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color, 'width' : option.width}"></div>
-              <h1 class="percent" ng-style="{'width' : option.width}">{{option.percentage}}%</h1>
-              <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-            </form>
-          </div>
-        </div>
-        <hr width="75%">
-      </div>
-    </div>
-  </div>
-  </div>
-
+  <ul class="nav-bar">
+      <img src="http://i.picresize.com/images/2017/06/10/Nqs9G.png" border="0">
+      <span><li><a ui-sref="home">Choozr</a></li>
+          <li><a ui-sref="myPolls">My Polls</a></li>
+</ul>
+<main ui-view></main>
 </body>
 
 </html>

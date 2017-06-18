@@ -1,18 +1,3 @@
-<div ng-init="loadPage()" ng-repeat="poll in polls">
-    <div class="po-container">
-        <div ng-if="poll.hasVoted === 'false'">
-          <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}"  ng-click="submitVote(option.text, poll._id, $parent.$index)" >
-            <div class="rec rec-prevote" ng-style="{'width' : option.width}"></div>
-            <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-          </form>
-        </div>
-        <div ng-if="poll.hasVoted === 'true'">
-          <form class="op-container" ng-repeat="option in poll.options" ng-style="{'background-image' : option.bgurl, 'width' : option.width}">
-            <div class="rec rec-postvote" ng-style="{ 'height': option.height, 'background-color': option.color, 'width' : option.width}"></div>
-            <h1 class="percent" ng-style="{'width' : option.width}">{{option.percentage}}%</h1>
-            <h2 class="text" ng-style="{'width' : option.width}">{{option.text}}</h2>
-          </form>
-        </div>
-    </div>
-    <hr width="75%">
+<div class="container">
+  <h1>THIS IS THE MY POLLS PAGE</h1>
 </div>
