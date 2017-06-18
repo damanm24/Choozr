@@ -16,8 +16,11 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $co
         }]
     };
 
-    $cookies.putObject('pollsCreated', []);
-
+    var pollsCreated = $cookies.get('pollsCreated');
+    if(!pollsCreated) {
+      $cookies.putObject('pollsCreated', []);
+    }
+    
     $scope.inputs = "not-pressed";
     $scope.cbwidth = "45px";
     $scope.fsize = "200px";
@@ -106,6 +109,7 @@ app.controller("NewPollCtrl", function NewPollCtrl($scope, $http, $location, $co
         var pollsCreated = $cookies.get("pollsCreated");
         pollsCreated = JSON.parse(pollsCreated);
         pollsCreated.push(id);
+        console.log(id)
         $cookies.putObject("pollsCreated", pollsCreated);
         resolve(id);
       })

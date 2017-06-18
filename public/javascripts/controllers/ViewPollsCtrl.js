@@ -19,8 +19,6 @@ app.controller("ViewPollsCtrl", function ViewPollsCtrl($scope, $http, $cookies) 
             var pollsVotedIn = $cookies.get('votedIn');
             if (!pollsVotedIn) {
                 pollsVotedIn = [];
-                pollsVotedIn.push("firstVal");
-                pollsVotedIn.push("secondVal");
                 $cookies.putObject('votedIn', pollsVotedIn);
             }
             for (var i = 0; i < $scope.polls.length; i++) { //The outer for-loop adds a hasVoted property which is set to false by default

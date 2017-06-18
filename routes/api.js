@@ -18,12 +18,13 @@ router.post('/pollPost', function (req, res) {
 });
 
 router.get('/getPoll/:id', function (req, res) {
+  console.log("HERE");
     Poll.findOne({_id: req.params.id}, function (err, foundPoll) {
         if (err) throw err;
         if (!foundPoll) {
-            res..status(304).send('Cannot find the Poll with the given ID. It might have been deleted');
+            res.status(304).send('Cannot find the Poll with the given ID. It might have been deleted');
         } else {
-            //console.log(foundPoll.id);
+            console.log(foundPoll.id);
             res.json(foundPoll);
         }
     });
@@ -63,7 +64,7 @@ router.get('/getPolls', function (req, res) {
     });
 });
 
-router.delete('/deletePoll:id', function (req, res) {
+router.delete('/deletePoll/:id', function (req, res) {
   Poll.remove({_id: req.params.id}, function(err, foundPoll) {
     if(err) throw err;
     if(!foundPoll) {
@@ -74,7 +75,7 @@ router.delete('/deletePoll:id', function (req, res) {
   })
 });
 
-router.put('/updatePoll:id', function(req, res) {
+router.put('/updatePoll/:id', function(req, res) {
   Poll.findByIdAndUpdate(req.params.id, req.body, function(err, updatedPoll) {
     if(err) throw err;
     if(!updatedPoll) {
