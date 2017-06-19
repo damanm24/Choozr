@@ -1,10 +1,13 @@
 app.controller("ViewPollsCtrl", function ViewPollsCtrl($scope, $http, $cookies) {
     //This is the load page promise it sets the $scope.polls to the response it gets back
+    $scope.lastSeen = null;
+
     let loadPage = function() {
         return new Promise((resolve, reject) => {
-            $http.get('/api/getPolls/')
+            $http.get('/api/lazyLoad/')
                 .then(function(response) {
                     $scope.polls = response.data.reverse();
+                    $scope.lastSeen = response.data.lastSeen;
                     resolve(response.data);
                 })
                 .catch(function(err, status) {

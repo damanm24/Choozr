@@ -73,7 +73,7 @@ router.get('/lazyLoad', function(req, res) {
     .sort({
       "_id": -1
     })
-    .limit(15)
+    .limit(5)
     .exec(function(err, docs) {
       if(err) throw err;
       docs.lastSeen = docs.slice(-1).id;
@@ -82,9 +82,9 @@ router.get('/lazyLoad', function(req, res) {
 });
 
 router.get('/nextIncrement/:lastSeen', function(req, res) {
-  User.find({ "_id": { "$lt": req.params.lastSeen })
+  Poll.find({ "_id": { "$lt": req.params.lastSeen }})
     .sort({ "_id": -1 })
-    .limit(15)
+    .limit(5)
     .exec(function(err,docs) {
         if(err) throw err;
         docs.lastSeen = docs.slice(-1).id;
