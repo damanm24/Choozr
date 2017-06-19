@@ -43,7 +43,6 @@ span {
 }
 .op-container {
     height: 300px;
-    width: 50px;
     overflow: hidden;
     display: inline-block;
     position: relative;
@@ -55,6 +54,11 @@ span {
 .op-container:hover {
     cursor: pointer;
 }
+
+.change-image-container{
+  display: inline-block;
+}
+
 .rec {
     position: absolute;
     bottom: 0px;
